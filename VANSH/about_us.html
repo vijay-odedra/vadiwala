@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Vadiwala Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #388E3C;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .hero-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 700px;
+        }
+        
+        .hero-content h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Section Styling */
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story, .mission, .values, .offerings, .team, .trust, .cta {
+            text-align: center;
+        }
+        
+        /* Enhanced Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: #f1f8e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: #4CAF50;
+        }
+        
+        .value-title {
+            font-size: 1.3rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        /* Enhanced Offerings Section */
+        .offerings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .offering-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offering-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .offering-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #4CAF50, #8BC34A);
+        }
+        
+        .offering-icon {
+            width: 70px;
+            height: 70px;
+            background: #f1f8e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: #4CAF50;
+        }
+        
+        .offering-title {
+            font-size: 1.3rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        /* Two-tone sections */
+        .tone-section {
+            background: linear-gradient(to bottom, #f9f9f9, #fff);
+        }
+        
+        /* Team Section */
+        .team-members {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            width: 200px;
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #4CAF50;
+        }
+        
+        /* Trust Section */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .badge {
+            width: 150px;
+            text-align: center;
+        }
+        
+        .badge img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #4CAF50;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .values-grid, .offerings-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-members, .trust-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Vadiwala Food</div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slides">
+            <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="hero-content">
+                    <h1>Welcome to Vadiwala</h1>
+                    <p>Authentic flavors, crafted with love and tradition</p>
+                    <a href="#" class="btn">Explore Our Menu</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="hero-content">
+                    <h1>Fresh Ingredients</h1>
+                    <p>We use only the freshest, locally sourced ingredients</p>
+                    <a href="#" class="btn">Learn About Our Sourcing</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="hero-content">
+                    <h1>Traditional Recipes</h1>
+                    <p>Our recipes have been passed down for generations</p>
+                    <a href="#" class="btn">Discover Our Story</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="hero-content">
+                    <h1>Healthy & Delicious</h1>
+                    <p>Enjoy meals that are both nutritious and flavorful</p>
+                    <a href="#" class="btn">View Nutrition Info</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="hero-content">
+                    <h1>Family Favorites</h1>
+                    <p>Meals that bring families together around the table</p>
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="story">
+        <div class="container">
+            <div class="section-content">
+                <h2>Our Story</h2>
+                <p>Vadiwala began as a small family kitchen in 2005, with Grandma Asha's secret recipes that had been passed down through generations. What started as homemade meals for friends and neighbors quickly grew into a beloved local food destination.</p>
+                <p>Today, we continue to honor those traditions while embracing innovation, bringing you the authentic flavors of home-cooked meals with the convenience of modern life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <section class="mission tone-section">
+        <div class="container">
+            <div class="section-content">
+                <h2>Our Mission</h2>
+                <p>At Vadiwala, our mission is simple: to deliver delicious, authentic, and nutritious food that brings people together. We believe that good food is not just about taste, but about the memories created around the table.</p>
+                <p>We're committed to using locally-sourced, fresh ingredients and traditional cooking methods to create meals that nourish both body and soul.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="values">
+        <div class="container">
+            <div class="section-content">
+                <h2>Our Values</h2>
+                <p>These core principles guide everything we do at Vadiwala, from ingredient selection to customer service.</p>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="value-title">Quality</h3>
+                        <p>We never compromise on ingredients or preparation methods, ensuring every dish meets our high standards.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3 class="value-title">Authenticity</h3>
+                        <p>We honor traditional recipes and cooking techniques that have been perfected over generations.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="value-title">Sustainability</h3>
+                        <p>We source locally and minimize our environmental impact through eco-friendly practices.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="value-title">Community</h3>
+                        <p>We believe in giving back and supporting local producers, farmers, and food artisans.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="value-title">Innovation</h3>
+                        <p>We continuously improve while respecting tradition, finding new ways to delight our customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer -->
+    <section class="offerings tone-section">
+        <div class="container">
+            <div class="section-content">
+                <h2>What We Offer</h2>
+                <p>Discover our range of services designed to bring authentic flavors to your table.</p>
+                
+                <div class="offerings-grid">
+                    <div class="offering-card">
+                        <div class="offering-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="offering-title">Freshly Prepared Meals</h3>
+                        <p>Cooked daily using traditional methods and the finest ingredients for authentic flavor.</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <div class="offering-icon">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <h3 class="offering-title">Catering Services</h3>
+                        <p>For events, weddings, and corporate functions with customized menu options.</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <div class="offering-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="offering-title">Cooking Classes</h3>
+                        <p>Learn to cook authentic dishes from our chefs in hands-on sessions.</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <div class="offering-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3 class="offering-title">Meal Subscriptions</h3>
+                        <p>Weekly deliveries of our most popular dishes for convenient meal planning.</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <div class="offering-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="offering-title">Special Diets</h3>
+                        <p>Vegetarian, vegan, gluten-free, and allergy-friendly options available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="team">
+        <div class="container">
+            <div class="section-content">
+                <h2>Our Team</h2>
+                <p>Behind every Vadiwala meal is a team of passionate food lovers dedicated to delivering exceptional culinary experiences.</p>
+                
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Portrait of Chef Raj, Head Chef at Vadiwala">
+                        <h3>Chef Raj</h3>
+                        <p>Head Chef</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Portrait of Priya, Nutritionist at Vadiwala">
+                        <h3>Priya</h3>
+                        <p>Nutritionist</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Portrait of Amit, Operations Manager at Vadiwala">
+                        <h3>Amit</h3>
+                        <p>Operations Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="trust tone-section">
+        <div class="container">
+            <div class="section-content">
+                <h2>Trust & Quality Assurance</h2>
+                <p>Your trust is our most valued ingredient. We maintain the highest standards of food safety and quality control.</p>
+                
+                <div class="trust-badges">
+                    <div class="badge">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Organic Certification Badge">
+                        <p>Organic Certified</p>
+                    </div>
+                    <div class="badge">
+                        <img src="https://images.unsplash.com/photo-1617200147207-4f4e5ddee0be?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Food Safety Certification Badge">
+                        <p>Food Safety Certified</p>
+                    </div>
+                    <div class="badge">
+                        <img src="https://images.unsplash.com/photo-1596526131083-e8c633c3c8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Local Business Award Badge">
+                        <p>Local Business Award 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="section-content">
+                <h2>Experience Vadiwala Today</h2>
+                <p>Ready to taste the difference that passion and tradition make?</p>
+                <a href="#" class="btn">View Our Menu</a>
+                <p style="margin-top: 20px;">Or give us a call: (555) 123-4567</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Vadiwala Food. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hero image rotation
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+            
+            // Function to show next slide
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Start slideshow
+            setInterval(nextSlide, 3000); // Change slide every 3 seconds
+            
+            console.log('Vadiwala About Page loaded');
+        });
+    </script>
+</body>
+</html>
