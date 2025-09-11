@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Navigation Component</title>
+    <style>
+        /* Navigation Bar Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header-navigation {
+            background-color: #fef7cd;
+            padding: 0.7rem 0;
+            border-bottom: 2px solid #dc2626;
+            position: relative;
+        }
+
+        .navigation-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #dc2626;
+        }
+
+        .brand-logo img {
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc2626;
+        }
+
+        .menu-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .menu-option {
+            margin: 0 1.5rem;
+        }
+
+        .menu-anchor {
+            text-decoration: none;
+            color: #dc2626;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+
+        .menu-anchor:hover {
+            border-bottom: 2px solid #dc2626;
+        }
+
+        /* Search Bar Styles */
+        .lookup-wrapper {
+            position: relative;
+            margin-left: 1rem;
+        }
+
+        .lookup-element {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #dc2626;
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .lookup-element:focus-within {
+            box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+        }
+
+        .lookup-field {
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #333;
+            font-size: 0.9rem;
+            width: 200px;
+            padding: 0;
+        }
+
+        .lookup-field::placeholder {
+            color: #999;
+        }
+
+        .lookup-submit {
+            background: none;
+            border: none;
+            color: #dc2626;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            padding: 0;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .lookup-submit:hover {
+            color: #b91c1c;
+        }
+
+        /* Search Button for Mobile */
+        .mobile-lookup-trigger {
+            display: none;
+            background: none;
+            border: 2px solid #dc2626;
+            color: #dc2626;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-lookup-trigger:hover {
+            background-color: #dc2626;
+            color: white;
+        }
+
+        /* Mobile Search Bar */
+        .mobile-lookup-panel {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background-color: #fef7cd;
+            padding: 1rem;
+            border-bottom: 2px solid #dc2626;
+            z-index: 1000;
+        }
+
+        .mobile-lookup-panel.active {
+            display: block;
+        }
+
+        .mobile-lookup-panel .lookup-element {
+            width: 100%;
+            max-width: none;
+        }
+
+        .mobile-lookup-panel .lookup-field {
+            width: 100%;
+        }
+
+        .menu-toggle-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            order: -1;
+            margin-right: 1rem;
+        }
+
+        .menu-toggle-icon span {
+            width: 25px;
+            height: 3px;
+            background-color: #dc2626;
+            margin: 2px 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle-icon.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-toggle-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle-icon.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Search Results */
+        .lookup-results-display {
+            background-color: white;
+            border: 2px solid #dc2626;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            display: none;
+        }
+
+        .lookup-results-display.show {
+            display: block;
+        }
+
+        .lookup-results-display h3 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            .navigation-wrapper {
+                flex-wrap: wrap;
+            }
+
+            .menu-toggle-icon {
+                display: flex;
+            }
+
+            .lookup-wrapper {
+                display: none;
+            }
+
+            .mobile-lookup-trigger {
+                display: block;
+            }
+
+            .menu-list {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #fef7cd;
+                width: 100%;
+                text-align: left;
+                padding: 2rem 0;
+                border-bottom: 2px solid #dc2626;
+                z-index: 1000;
+                transition: left 0.3s ease;
+            }
+
+            .menu-list.active {
+                left: 0;
+            }
+
+            .menu-option {
+                margin: 0;
+                padding: 0 2rem;
+            }
+
+            .menu-anchor {
+                padding: 1rem 0;
+                display: block;
+                border-bottom: none;
+            }
+
+            .menu-anchor:hover {
+                border-bottom: none;
+                background-color: rgba(220, 38, 38, 0.1);
+            }
+
+            .brand-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navigation-wrapper {
+                padding: 0 0.5rem;
+            }
+
+            .brand-logo img {
+                height: 35px;
+                width: 35px;
+            }
+
+            .brand-title {
+                font-size: 1.2rem;
+            }
+
+            .mobile-lookup-trigger {
+                margin-left: 0.5rem;
+                padding: 0.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Component -->
+    <nav class="header-navigation" id="primaryNavigation">
+        <div class="navigation-wrapper">
+            <div class="menu-toggle-icon" id="burgerIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <a href="#" class="brand-logo">
+                <img src="https://via.placeholder.com/40x40/dc2626/ffffff?text=L" alt="Logo">
+                <span class="brand-title">YourLogo</span>
+            </a>
+            
+            <ul class="menu-list" id="navigationMenu">
+                <li class="menu-option"><a href="#" class="menu-anchor">Home</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">About</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Services</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Portfolio</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Contact</a></li>
+            </ul>
+
+            <!-- Desktop Search Bar -->
+            <div class="lookup-wrapper">
+                <form class="lookup-element" id="desktopLookupForm">
+                    <input type="text" class="lookup-field" placeholder="Search..." id="desktopLookupField">
+                    <button type="submit" class="lookup-submit">🔍</button>
+                </form>
+            </div>
+
+            <!-- Mobile Search Toggle Button -->
+            <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Search Bar -->
+    <div class="mobile-lookup-panel" id="mobileLookupPanel">
+        <form class="lookup-element" id="mobileLookupForm">
+            <input type="text" class="lookup-field" placeholder="Search..." id="mobileLookupField">
+            <button type="submit" class="lookup-submit">🔍</button>
+        </form>
+    </div>
+
+    <!-- Search Results Display -->
+    <div class="lookup-results-display" id="lookupResultsDisplay">
+        <h3>Search Results</h3>
+        <p id="lookupResultsText"></p>
+    </div>
+
+    <script>
+        // Mobile menu toggle functionality
+        const burgerIcon = document.getElementById('burgerIcon');
+        const navigationMenu = document.getElementById('navigationMenu');
+        const mobileLookupToggle = document.getElementById('mobileLookupToggle');
+        const mobileLookupPanel = document.getElementById('mobileLookupPanel');
+        const lookupResultsDisplay = document.getElementById('lookupResultsDisplay');
+        const lookupResultsText = document.getElementById('lookupResultsText');
+
+        // Toggle mobile menu
+        burgerIcon.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navigationMenu.classList.toggle('active');
+        });
+
+        // Toggle mobile search
+        mobileLookupToggle.addEventListener('click', function() {
+            mobileLookupPanel.classList.toggle('active');
+        });
+
+        // Handle search form submissions
+        function handleSearch(searchTerm) {
+            if (searchTerm.trim() !== '') {
+                lookupResultsText.textContent = `Showing results for: "${searchTerm}"`;
+                lookupResultsDisplay.classList.add('show');
+                // Hide mobile search panel after search
+                mobileLookupPanel.classList.remove('active');
+            }
+        }
+
+        // Desktop search form
+        document.getElementById('desktopLookupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = document.getElementById('desktopLookupField').value;
+            handleSearch(searchTerm);
+        });
+
+        // Mobile search form
+        document.getElementById('mobileLookupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = document.getElementById('mobileLookupField').value;
+            handleSearch(searchTerm);
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.menu-anchor').forEach(link => {
+            link.addEventListener('click', function() {
+                navigationMenu.classList.remove('active');
+                burgerIcon.classList.remove('active');
+            });
+        });
+
+        // Close mobile search when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileLookupPanel.contains(e.target) && !mobileLookupToggle.contains(e.target)) {
+                mobileLookupPanel.classList.remove('active');
+            }
+            
+            if (!navigationMenu.contains(e.target) && !burgerIcon.contains(e.target)) {
+                navigationMenu.classList.remove('active');
+                burgerIcon.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

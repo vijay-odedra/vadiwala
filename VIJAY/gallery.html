@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gallery.css">
+    <title>Red and Cream Food Gallery</title>
+    
+</head>
+<body>
+    
+    <header>
+        <h1>Vadiwala Food Gallery</h1>
+        <h4>Heppy For life.</h4>
+    </header>
+
+        <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" class="search-box" id="searchInput" placeholder="🔍 Search for delicious food..." />
+    </div>
+
+
+    <section class="gallery">
+        <!-- Food Item 1 -->
+        <div class="card" onclick="openModal('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7742df8d-2a1a-43df-ae3f-c76010612852.png', 'Aromatic red tomatoes and fresh cream-colored mozzarella cheese platter with basil leaves and olive oil drizzle on a rustic wooden table')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/469eb6da-9f00-4baf-802d-9fbbb6b5b3a3.png" alt="Aromatic red tomatoes and fresh cream-colored mozzarella cheese platter with basil leaves and olive oil drizzle on a rustic wooden table" />
+            <div class="card-content">
+                <div class="card-title">Caprese Salad</div>
+                <div class="card-description">Fresh Italian salad with red tomatoes and cream mozzarella.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 2 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Juicy red strawberry tart with cream-colored whipped cream filling and golden crust on a red and cream decorated plate')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3006462c-a3c7-41b2-b079-e0fd337bcec4.png" alt="Juicy red strawberry tart with cream-colored whipped cream filling and golden crust on a red and cream decorated plate" />
+            <div class="card-content">
+                <div class="card-title">Strawberry Tart</div>
+                <div class="card-description">Sweet tart topped with red strawberries and cream filling.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 3 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Spicy red chili peppers with cream-colored yogurt sauce in a traditional Middle Eastern dish arrangement with flatbread')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4f9e7ac8-28ef-493e-9b50-de5b5b1b6bcf.png" alt="Spicy red chili peppers with cream-colored yogurt sauce in a traditional Middle Eastern dish arrangement with flatbread" />
+            <div class="card-content">
+                <div class="card-title">Spicy Chili Peppers</div>
+                <div class="card-description">Hot red chilies paired with cooling cream yogurt.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 4 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Creamy white chocolate mousse with red raspberry swirl in elegant glass cups on a marble countertop')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2eeaed73-9f59-4e49-b2fe-5aab009660f2.png" alt="Creamy white chocolate mousse with red raspberry swirl in elegant glass cups on a marble countertop" />
+            <div class="card-content">
+                <div class="card-title">White Chocolate Mousse</div>
+                <div class="card-description">Light and fluffy cream dessert with red raspberry touches.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 5 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Red velvet cake slice with cream cheese frosting and chocolate shavings garnished with fresh berries')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3ab8839c-1647-4a2d-bac5-a435c486bf3b.png" alt="Red velvet cake slice with cream cheese frosting and chocolate shavings garnished with fresh berries" />
+            <div class="card-content">
+                <div class="card-title">Red Velvet Cake</div>
+                <div class="card-description">Moist red cake layered with cream frosting.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 6 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Grilled red salmon fillet with creamy dill sauce and lemon slices on a white porcelain plate')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/873a796e-c094-4db0-b9dd-4fadc75babf0.png" alt="Grilled red salmon fillet with creamy dill sauce and lemon slices on a white porcelain plate" />
+            <div class="card-content">
+                <div class="card-title">Grilled Salmon</div>
+                <div class="card-description">Pinkish-red salmon with cream dill sauce.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 7 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Cream puff pastries filled with vanilla cream and topped with red cherry glaze and powdered sugar dusting')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/aeb516fb-becc-4cd9-a6b2-5d9ddf3ebb2d.png" alt="Cream puff pastries filled with vanilla cream and topped with red cherry glaze and powdered sugar dusting" />
+            <div class="card-content">
+                <div class="card-title">Cream Puffs</div>
+                <div class="card-description">Puffy pastries filled with cream and red cherry accents.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 8 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Red beet soup with sour cream swirl and fresh dill garnish in a ceramic bowl')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f94c6c1d-3916-43b5-bc72-e7c195960b94.png" alt="Red beet soup with sour cream swirl and fresh dill garnish in a ceramic bowl" />
+            <div class="card-content">
+                <div class="card-title">Beet Soup</div>
+                <div class="card-description">Earthy red beet soup topped with cream.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 9 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Fresh pomegranate seeds bursting with red juice mixed with cream yogurt and honey syrup in a bowl')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/73df4357-44f6-4329-936b-960d07f9d019.png" alt="Fresh pomegranate seeds bursting with red juice mixed with cream yogurt and honey syrup in a bowl" />
+            <div class="card-content">
+                <div class="card-title">Pomegranate Yogurt</div>
+                <div class="card-description">Cream yogurt studded with red pomegranate seeds.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 10 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Red cherry tomatoes stuffed with cream cheese and herbs on a bamboo platter')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e4aed97a-819a-4680-b2f8-8bee796fe228.png" alt="Red cherry tomatoes stuffed with cream cheese and herbs on a bamboo platter" />
+            <div class="card-content">
+                <div class="card-title">Stuffed Tomatoes</div>
+                <div class="card-description">Red cherry tomatoes filled with cream cheese.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 11 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Creamy risotto with red tomato sauce and parmesan shavings in a round dish')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0533a44f-6191-4af8-b00e-feaa6ff78753.png" alt="Creamy risotto with red tomato sauce and parmesan shavings in a round dish" />
+            <div class="card-content">
+                <div class="card-title">Tomato Risotto</div>
+                <div class="card-description">Cream risotto infused with red tomato flavors.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 12 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Red apple pie with lattice crust and cream custard filling served warm with whipped cream')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/225e88ec-bfb5-4973-a69e-b080e7a2d496.png" alt="Red apple pie with lattice crust and cream custard filling served warm with whipped cream" />
+            <div class="card-content">
+                <div class="card-title">Apple Pie</div>
+                <div class="card-description">Warm red apple pie with cream filling.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 13 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Spicy red curry chicken with coconut cream and rice in a Thai-inspired bowl')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7905b902-fdc2-4097-86a5-48b87ffd4c5f.png" alt="Spicy red curry chicken with coconut cream and rice in a Thai-inspired bowl" />
+            <div class="card-content">
+                <div class="card-title">Red Curry Chicken</div>
+                <div class="card-description">Fiery red curry with creamy coconut sauce.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 14 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Cream-colored profiteroles filled with chocolate and topped with red strawberry halves')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/baf30d19-3cbb-410a-aa1f-91f363d09a81.png" alt="Cream-colored profiteroles filled with chocolate and topped with red strawberry halves" />
+            <div class="card-content">
+                <div class="card-title">Chocolate Profiteroles</div>
+                <div class="card-description">Cream profiteroles with chocolate and red strawberries.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 15 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Red pepper hummus with cream tahini sauce and olive oil in a colorful Mediterranean dip set')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/df0cdfe5-5e01-4df6-ac32-e576c66729d2.png" alt="Red pepper hummus with cream tahini sauce and olive oil in a colorful Mediterranean dip set" />
+            <div class="card-content">
+                <div class="card-title">Red Pepper Hummus</div>
+                <div class="card-description">Smooth hummus with red peppers and cream sauce.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 16 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Cream cheesecake with red berry compote and graham cracker crust in a springform pan')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/67cdbd22-d0f3-485e-85d1-bc23391a99a7.png" alt="Cream cheesecake with red berry compote and graham cracker crust in a springform pan" />
+            <div class="card-content">
+                <div class="card-title">Berry Cheesecake</div>
+                <div class="card-description">Rich cream cheesecake topped with red berries.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 17 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Grilled red snapper fillet with creamy hollandaise sauce and asparagus spears')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dce5ee3f-a419-46d1-89f7-e150e74f69cc.png" alt="Grilled red snapper fillet with creamy hollandaise sauce and asparagus spears" />
+            <div class="card-content">
+                <div class="card-title">Red Snapper</div>
+                <div class="card-description">Grilled red fish with cream hollandaise.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 18 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Red wine reduction sauce with cream brie cheese on toasted baguette slices')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e15484c1-07df-40a0-bd98-43596785358e.png" alt="Red wine reduction sauce with cream brie cheese on toasted baguette slices" />
+            <div class="card-content">
+                <div class="card-title">Brie and Wine Appetizer</div>
+                <div class="card-description">Cream brie with red wine sauce on bread.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 19 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Creamy mascarpone tiramisu layered with coffee-soaked ladyfingers and red cocoa powder dusting')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2860fbfd-ad6e-46b2-8fef-482a4baeb9f8.png" alt="Creamy mascarpone tiramisu layered with coffee-soaked ladyfingers and red cocoa powder dusting" />
+            <div class="card-content">
+                <div class="card-title">Tiramisu</div>
+                <div class="card-description">Classic cream tiramisu with red cocoa accents.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 20 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Red lentil soup with cream swirl and fresh cilantro garnish in a ceramic bowl')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1607f893-ca7f-4744-aaba-2767c947a5c3.png" alt="Red lentil soup with cream swirl and fresh cilantro garnish in a ceramic bowl" />
+            <div class="card-content">
+                <div class="card-title">Red Lentil Soup</div>
+                <div class="card-description">Hearty red lentil soup with cream topping.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 21 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Cream butter frosting on red velvet Cookies with chocolate chip additions')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e3746138-add8-4dad-8427-3d172f64cd5d.png" alt="Cream butter frosting on red velvet Cookies with chocolate chip additions" />
+            <div class="card-content">
+                <div class="card-title">Red Velvet Cookies</div>
+                <div class="card-description">Red velvet cookies with cream frosting.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 22 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Spicy red kimchi stew with tofu cubes and cream miso in a Korean bowl')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2a37d5ea-17ff-4e80-94ef-2716e63afc8a.png" alt="Spicy red kimchi stew with tofu cubes and cream miso in a Korean bowl" />
+            <div class="card-content">
+                <div class="card-title">Kimchi Stew</div>
+                <div class="card-description">Spicy red kimchi stew with cream elements.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 23 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Creamy peach ice cream topped with red raspberry coulis and almond slivers')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8116c7d-ae7c-432f-842a-115d5847406f.png" alt="Creamy peach ice cream topped with red raspberry coulis and almond slivers" />
+            <div class="card-content">
+                <div class="card-title">Peach Ice Cream</div>
+                <div class="card-description">Creamy ice cream with red raspberry topping.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 24 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Red bell pepper frittata with cream feta cheese and spinach in a skillet')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/20d078a7-28b2-458d-92cf-e15aa5fc4198.png" alt="Red bell pepper frittata with cream feta cheese and spinach in a skillet" />
+            <div class="card-content">
+                <div class="card-title">Frittata with Peppers</div>
+                <div class="card-description">Egg frittata with red peppers and cream feta.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 25 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Creamy saffron rice pilaf with red pomegranate seeds and nuts on a gold-rimmed plate')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8dd512bf-e51a-4657-a750-163bb7f46254.png" alt="Creamy saffron rice pilaf with red pomegranate seeds and nuts on a gold-rimmed plate" />
+            <div class="card-content">
+                <div class="card-title">Saffron Rice Pilaf</div>
+                <div class="card-description">Creamy rice with red pomegranate details.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 26 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Red raspberry jam sandwich between cream vanilla wafers in a stack')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/aa4dd444-19ac-47ed-8bd7-81f5e62051e8.png" alt="Red raspberry jam sandwich between cream vanilla wafers in a stack" />
+            <div class="card-content">
+                <div class="card-title">Raspberry Jam Cookies</div>
+                <div class="card-description">Cream wafers filled with red raspberry jam.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 27 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Creamy yogurt parfait layered with red strawberry slices and granola crunch')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b56890ad-b964-4971-9fdb-952ea7e7fe1a.png" alt="Creamy yogurt parfait layered with red strawberry slices and granola crunch" />
+            <div class="card-content">
+                <div class="card-title">Strawberry Yogurt Parfait</div>
+                <div class="card-description">Layered cream yogurt with red strawberries.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 28 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Red rose petal tea served in cream porcelain cup with lemon twist')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/de745983-eb87-4ef8-b7ed-944d735b0a0d.png" alt="Red rose petal tea served in cream porcelain cup with lemon twist" />
+            <div class="card-content">
+                <div class="card-title">Rose Petal Tea</div>
+                <div class="card-description">Aromatic tea with red rose and cream cup.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 29 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Cream avocado toast topped with red cherry tomatoes and microgreens')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/31d68b1d-f79b-4b87-91e1-a042e499e67f.png" alt="Cream avocado toast topped with red cherry tomatoes and microgreens" />
+            <div class="card-content">
+                <div class="card-title">Avocado Toast</div>
+                <div class="card-description">Creamy avocado on toast with red tomatoes.</div>
+            </div>
+        </div>
+
+        <!-- Food Item 30 -->
+        <div class="card" onclick="openModal('https://placehold.co/800x600', 'Spicy red harissa pasta with cream parmesan sauce and garlic bread on the side')">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/49b0a782-fdb9-4431-9a47-13c7913fd364.png" alt="Spicy red harissa pasta with cream parmesan sauce and garlic bread on the side" />
+            <div class="card-content">
+                <div class="card-title">Harissa Pasta</div>
+                <div class="card-description">Red harissa pasta with cream sauce.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for viewing large images -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage" src="" alt="Large view of selected food image" / src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2787ce2a-d0a0-4aae-a60d-f0691be8fb97.png">
+    </div>
+
+
+    <script>
+        function openModal(src, alt) {
+            const modal = document.getElementById('myModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = src;
+            modalImg.alt = alt;
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        // Close modal when clicked outside content
+        document.getElementById('myModal').onclick = function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        };
+
+
+          // Simple search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const description = card.querySelector('.card-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
