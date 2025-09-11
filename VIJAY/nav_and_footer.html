@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unique Navigation Component</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Navigation Component</title>
+
     <style>
-        /* Navigation Bar Styles */
+
+             /* Navigation Bar Styles */
         * {
             margin: 0;
             padding: 0;
@@ -295,9 +298,208 @@
                 padding: 0.4rem;
             }
         }
+
+        
+
+
+        /* ---------------------------------------------------------------------------------- */
+
+
+        
+        /* Footer */
+
+        .main-content {
+            min-height: calc(100vh - 200px);
+            padding: 40px 20px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer {
+            background-color: #f5f3f0;
+            padding: 60px 0 40px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #000;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #e74c3c;
+        }
+
+        .marketplace-link {
+            color: #e74c3c !important;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid #e0ddd8;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo .red-o {
+            color: #e74c3c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #e74c3c;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+        }
+
+        .company-address {
+            grid-column: span 2;
+            padding: 20px;
+            background: rgba(231, 76, 60, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .company-address h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .company-address p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links {
+                order: -1;
+            }
+        }
+
+            .social-links {
+    display: flex;
+    gap: 12px;
+    }
+
+    .social-icon {
+    text-decoration: none;
+    font-size: 20px;
+    }
+
+    .magic {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: black;
+    color: white;
+    transition: all 0.3s ease;
+    }
+
+    .magic:hover {
+    background: linear-gradient(45deg,#e74c3c);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+
+
     </style>
+
+
 </head>
 <body>
+
     <!-- Navigation Component -->
     <nav class="header-navigation" id="primaryNavigation">
         <div class="navigation-wrapper">
@@ -316,7 +518,7 @@
                 <li class="menu-option"><a href="#" class="menu-anchor">Home</a></li>
                 <li class="menu-option"><a href="#" class="menu-anchor">About</a></li>
                 <li class="menu-option"><a href="#" class="menu-anchor">Services</a></li>
-                <li class="menu-option"><a href="#" class="menu-anchor">Portfolio</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Gallery</a></li>
                 <li class="menu-option"><a href="#" class="menu-anchor">Contact</a></li>
             </ul>
 
@@ -333,83 +535,96 @@
         </div>
     </nav>
 
-    <!-- Mobile Search Bar -->
-    <div class="mobile-lookup-panel" id="mobileLookupPanel">
-        <form class="lookup-element" id="mobileLookupForm">
-            <input type="text" class="lookup-field" placeholder="Search..." id="mobileLookupField">
-            <button type="submit" class="lookup-submit">🔍</button>
-        </form>
-    </div>
 
-    <!-- Search Results Display -->
-    <div class="lookup-results-display" id="lookupResultsDisplay">
-        <h3>Search Results</h3>
-        <p id="lookupResultsText"></p>
-    </div>
 
-    <script>
-        // Mobile menu toggle functionality
-        const burgerIcon = document.getElementById('burgerIcon');
-        const navigationMenu = document.getElementById('navigationMenu');
-        const mobileLookupToggle = document.getElementById('mobileLookupToggle');
-        const mobileLookupPanel = document.getElementById('mobileLookupPanel');
-        const lookupResultsDisplay = document.getElementById('lookupResultsDisplay');
-        const lookupResultsText = document.getElementById('lookupResultsText');
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- POS Section -->
+                <div class="footer-section">
+                    <h3>POS</h3>
+                    <ul>
+                        <li><a href="#">Billing</a></li>
+                        <li><a href="#">Inventory</a></li>
+                        <li><a href="#">Reporting</a></li>
+                        <li><a href="#">Online Ordering</a></li>
+                        <li><a href="#">CRM</a></li>
+                        <li><a href="#">Menu</a></li>
+                    </ul>
+                    <a href="#" style="background: #333; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 15px;">Take a free demo</a>
+                </div>
 
-        // Toggle mobile menu
-        burgerIcon.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navigationMenu.classList.toggle('active');
-        });
+                <!-- Add-ons Section -->
+                <div class="footer-section">
+                    <h3>Add-ons</h3>
+                    <ul>
+                        <li><a href="#">Marketplace</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
 
-        // Toggle mobile search
-        mobileLookupToggle.addEventListener('click', function() {
-            mobileLookupPanel.classList.toggle('active');
-        });
+                <!-- Outlet Types Section -->
+                <div class="footer-section">
+                    <h3>Outlet types</h3>
+                    <ul>
+                        <li><a href="#">Fine Dine</a></li>
+                        <li><a href="#">QSR</a></li>
+                        <li><a href="#">Cafe</a></li>
+                        <li><a href="#">Food Court</a></li>
+                        <li><a href="#">Cloud Kitchen</a></li>
+                        <li><a href="#">Ice Cream</a></li>
+                        <li><a href="#">Bakery</a></li>
+                        <li><a href="#">Bar & Brewery</a></li>
+                        <li><a href="#">Pizzeria</a></li>
+                        <li><a href="#">Large Chains</a></li>
+                    </ul>
+                </div>
 
-        // Handle search form submissions
-        function handleSearch(searchTerm) {
-            if (searchTerm.trim() !== '') {
-                lookupResultsText.textContent = `Showing results for: "${searchTerm}"`;
-                lookupResultsDisplay.classList.add('show');
-                // Hide mobile search panel after search
-                mobileLookupPanel.classList.remove('active');
-            }
-        }
+                <!-- Resources Section -->
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Reseller</a></li>
+                        <li><a href="#">Magazine</a></li>
+                    </ul>
+                </div>
 
-        // Desktop search form
-        document.getElementById('desktopLookupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const searchTerm = document.getElementById('desktopLookupField').value;
-            handleSearch(searchTerm);
-        });
 
-        // Mobile search form
-        document.getElementById('mobileLookupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const searchTerm = document.getElementById('mobileLookupField').value;
-            handleSearch(searchTerm);
-        });
+            </div>
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.menu-anchor').forEach(link => {
-            link.addEventListener('click', function() {
-                navigationMenu.classList.remove('active');
-                burgerIcon.classList.remove('active');
-            });
-        });
+            <div class="footer-bottom">
+                <div class="logo-section">
+                    <div class="logo">
+                        PETP<span class="red-o">O</span><span class="red-o">O</span>JA
+                    </div>
+                </div>
 
-        // Close mobile search when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!mobileLookupPanel.contains(e.target) && !mobileLookupToggle.contains(e.target)) {
-                mobileLookupPanel.classList.remove('active');
-            }
-            
-            if (!navigationMenu.contains(e.target) && !burgerIcon.contains(e.target)) {
-                navigationMenu.classList.remove('active');
-                burgerIcon.classList.remove('active');
-            }
-        });
-    </script>
+            <div class="social-links">
+                <a href="#" class="social-icon magic"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon magic"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon magic"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon magic"><i class="fab fa-facebook-f"></i></a>
+            </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>+919104369797</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉</span>
+                        <span>getposs@petpooja.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
 </body>
 </html>

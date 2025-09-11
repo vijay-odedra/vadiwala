@@ -9,54 +9,41 @@
 
 </head>
 <body>
+
     <!-- Navigation Component -->
-    <nav class="navbar" id="mainNavigation">
-        <div class="nav-container">
-            <div class="hamburger" id="hamburger">
+    <nav class="header-navigation" id="primaryNavigation">
+        <div class="navigation-wrapper">
+            <div class="menu-toggle-icon" id="burgerIcon">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             
-            <a href="#" class="nav-logo">
+            <a href="#" class="brand-logo">
                 <img src="https://via.placeholder.com/40x40/dc2626/ffffff?text=L" alt="Logo">
-                <span class="logo-text">YourLogo</span>
+                <span class="brand-title">YourLogo</span>
             </a>
             
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Gallery</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            <ul class="menu-list" id="navigationMenu">
+                <li class="menu-option"><a href="#" class="menu-anchor">Home</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">About</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Services</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Gallery</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Contact</a></li>
             </ul>
 
             <!-- Desktop Search Bar -->
-            <div class="search-container">
-                <form class="search-form" id="searchForm">
-                    <input type="text" class="search-input" placeholder="Search..." id="searchInput">
-                    <button type="submit" class="search-btn">🔍</button>
+            <div class="lookup-wrapper">
+                <form class="lookup-element" id="desktopLookupForm">
+                    <input type="text" class="lookup-field" placeholder="Search..." id="desktopLookupField">
+                    <button type="submit" class="lookup-submit">🔍</button>
                 </form>
             </div>
 
             <!-- Mobile Search Toggle Button -->
-            <button class="search-toggle" id="searchToggle">🔍</button>
+            <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
         </div>
     </nav>
-
-    <!-- Mobile Search Bar -->
-    <div class="mobile-search" id="mobileSearch">
-        <form class="search-form" id="mobileSearchForm">
-            <input type="text" class="search-input" placeholder="Search..." id="mobileSearchInput">
-            <button type="submit" class="search-btn">🔍</button>
-        </form>
-    </div>
-
-    <!-- Search Results Display -->
-    <div class="search-results" id="searchResults">
-        <h3>Search Results</h3>
-        <p id="searchResultsText"></p>
-    </div>
 
 
 
