@@ -78,6 +78,34 @@
             border-bottom: 2px solid #dc2626;
         }
 
+        /* Order Button Styles */
+        .order-button {
+            background-color: #dc2626;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .order-button:hover {
+            background-color: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .order-button i {
+            font-size: 1rem;
+        }
+
         /* Search Bar Styles */
         .lookup-wrapper {
             position: relative;
@@ -222,6 +250,12 @@
             margin-bottom: 1rem;
         }
 
+        /* Action buttons container for better organization */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+
         /* Mobile Responsive */
         @media screen and (max-width: 768px) {
             .navigation-wrapper {
@@ -277,6 +311,17 @@
             .brand-title {
                 font-size: 1.3rem;
             }
+
+            /* Mobile Order Button Adjustments */
+            .order-button {
+                margin-left: 0.5rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .nav-actions {
+                gap: 0.5rem;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -294,8 +339,18 @@
             }
 
             .mobile-lookup-trigger {
-                margin-left: 0.5rem;
+                margin-left: 10rem;
                 padding: 0.4rem;
+            }
+
+            .order-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+                margin-left: 0.25rem;
+            }
+
+            .order-button span {
+                display: none; /* Hide text on very small screens, keep icon */
             }
         }
 
@@ -464,7 +519,7 @@
             }
         }
 
-            .social-links {
+    .social-links {
     display: flex;
     gap: 12px;
     }
@@ -522,20 +577,40 @@
                 <li class="menu-option"><a href="#" class="menu-anchor">Contact</a></li>
             </ul>
 
-            <!-- Desktop Search Bar -->
-            <div class="lookup-wrapper">
-                <form class="lookup-element" id="desktopLookupForm">
-                    <input type="text" class="lookup-field" placeholder="Search..." id="desktopLookupField">
-                    <button type="submit" class="lookup-submit">🔍</button>
-                </form>
-            </div>
+            <!-- Action buttons container -->
+            <div class="nav-actions">
+                <!-- Desktop Search Bar -->
+                <div class="lookup-wrapper">
+                    <form class="lookup-element" id="desktopLookupForm">
+                        <input type="text" class="lookup-field" placeholder="Search..." id="desktopLookupField">
+                        <button type="submit" class="lookup-submit">🔍</button>
+                    </form>
+                </div>
 
-            <!-- Mobile Search Toggle Button -->
-            <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
+                <!-- Mobile Search Toggle Button -->
+                <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
+
+                <!-- Order Button -->
+                <a href="#" class="order-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Order Now</span>
+                </a>
+            </div>
         </div>
     </nav>
 
+    <!-- Mobile Search Panel -->
+    <div class="mobile-lookup-panel" id="mobileLookupPanel">
+        <form class="lookup-element" id="mobileLookupForm">
+            <input type="text" class="lookup-field" placeholder="Search..." id="mobileLookupField">
+            <button type="submit" class="lookup-submit">🔍</button>
+        </form>
+    </div>
 
+    <!-- Main content placeholder -->
+    <div class="main-content">
+        <h1 style="color: #dc2626; text-align: center;">Welcome to Our Website</h1>
+    </div>
 
     <footer>
         <div class="footer-container">
@@ -593,8 +668,6 @@
                         <li><a href="#">Magazine</a></li>
                     </ul>
                 </div>
-
-
             </div>
 
             <div class="footer-bottom">
@@ -610,7 +683,6 @@
         <a href="#" class="social-icon magic"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
 
-
                 <div class="contact-info">
                     <div class="contact-item">
                         <span>📞</span>
@@ -625,6 +697,49 @@
         </div>
     </footer>
 
+    <script>
+        // Mobile menu toggle
+        const burgerIcon = document.getElementById('burgerIcon');
+        const navigationMenu = document.getElementById('navigationMenu');
+        const mobileLookupToggle = document.getElementById('mobileLookupToggle');
+        const mobileLookupPanel = document.getElementById('mobileLookupPanel');
+
+        burgerIcon.addEventListener('click', function() {
+            burgerIcon.classList.toggle('active');
+            navigationMenu.classList.toggle('active');
+        });
+
+        // Mobile search toggle
+        mobileLookupToggle.addEventListener('click', function() {
+            mobileLookupPanel.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.header-navigation')) {
+                burgerIcon.classList.remove('active');
+                navigationMenu.classList.remove('active');
+                mobileLookupPanel.classList.remove('active');
+            }
+        });
+
+        // Search form handling (placeholder functionality)
+        document.getElementById('desktopLookupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.getElementById('desktopLookupField').value;
+            if (query.trim()) {
+                alert('Searching for: ' + query);
+            }
+        });
+
+        document.getElementById('mobileLookupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.getElementById('mobileLookupField').value;
+            if (query.trim()) {
+                alert('Searching for: ' + query);
+            }
+        });
+    </script>
 
 </body>
 </html>

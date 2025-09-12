@@ -1,4 +1,4 @@
-     /* Navigation Bar Styles */
+             /* Navigation Bar Styles */
         * {
             margin: 0;
             padding: 0;
@@ -66,6 +66,34 @@
 
         .menu-anchor:hover {
             border-bottom: 2px solid #dc2626;
+        }
+
+        /* Order Button Styles */
+        .order-button {
+            background-color: #dc2626;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .order-button:hover {
+            background-color: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .order-button i {
+            font-size: 1rem;
         }
 
         /* Search Bar Styles */
@@ -212,6 +240,12 @@
             margin-bottom: 1rem;
         }
 
+        /* Action buttons container for better organization */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+
         /* Mobile Responsive */
         @media screen and (max-width: 768px) {
             .navigation-wrapper {
@@ -267,6 +301,17 @@
             .brand-title {
                 font-size: 1.3rem;
             }
+
+            /* Mobile Order Button Adjustments */
+            .order-button {
+                margin-left: 0.5rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .nav-actions {
+                gap: 0.5rem;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -284,10 +329,22 @@
             }
 
             .mobile-lookup-trigger {
-                margin-left: 0.5rem;
+                margin-left: 10rem;
                 padding: 0.4rem;
             }
+
+            .order-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+                margin-left: 0.25rem;
+            }
+
+            .order-button span {
+                display: none; /* Hide text on very small screens, keep icon */
+            }
         }
+
+        
 
         
      /* Global Styles */

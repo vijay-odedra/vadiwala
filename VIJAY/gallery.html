@@ -10,7 +10,8 @@
 </head>
 <body>
 
-        <!-- Navigation Component -->
+ 
+    <!-- Navigation Component -->
     <nav class="header-navigation" id="primaryNavigation">
         <div class="navigation-wrapper">
             <div class="menu-toggle-icon" id="burgerIcon">
@@ -32,19 +33,27 @@
                 <li class="menu-option"><a href="#" class="menu-anchor">Contact</a></li>
             </ul>
 
-            <!-- Desktop Search Bar -->
-            <div class="lookup-wrapper">
-                <form class="lookup-element" id="desktopLookupForm">
-                    <input type="text" class="lookup-field" placeholder="Search..." id="desktopLookupField">
-                    <button type="submit" class="lookup-submit">🔍</button>
-                </form>
-            </div>
+            <!-- Action buttons container -->
+            <div class="nav-actions">
+                <!-- Desktop Search Bar -->
+                <div class="lookup-wrapper">
+                    <form class="lookup-element" id="desktopLookupForm">
+                        <input type="text" class="lookup-field" placeholder="Search..." id="desktopLookupField">
+                        <button type="submit" class="lookup-submit">🔍</button>
+                    </form>
+                </div>
 
-            <!-- Mobile Search Toggle Button -->
-            <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
+                <!-- Mobile Search Toggle Button -->
+                <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
+
+                <!-- Order Button -->
+                <a href="#" class="order-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Order Now</span>
+                </a>
+            </div>
         </div>
     </nav>
-
 
     
     <header>
