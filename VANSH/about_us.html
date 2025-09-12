@@ -41,7 +41,7 @@
         
         .btn {
             display: inline-block;
-            background-color: #4CAF50;
+            background-color: rgb(16, 123, 199);
             color: white;
             padding: 12px 25px;
             border-radius: 4px;
@@ -51,21 +51,21 @@
         }
         
         .btn:hover {
-            background-color: #388E3C;
+            background-color: blue;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         
         /* Header */
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+    background-color: #fef7cd; /* changed from #4CAF50 */
+    color: #dc2626; /* changed from white */
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(220, 38, 38, 0.1); /* subtle red shadow */
+}
         
         nav {
             display: flex;
@@ -74,9 +74,10 @@
         }
         
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-        }
+    font-size: 28px;
+    font-weight: bold;
+    color: #dc2626; /* changed from white */
+}
         
         .nav-links {
             display: flex;
@@ -88,15 +89,19 @@
         }
         
         .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
+    color: #dc2626; /* changed from white */
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.3rem;
+}
         
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
+    .nav-links a:hover {
+    opacity: 1;
+    border-bottom: 2px solid #dc2626; /* underline on hover */
+}
+
         
         /* Hero Section */
         .hero {
@@ -192,12 +197,12 @@
             justify-content: center;
             margin: 0 auto 20px;
             font-size: 28px;
-            color: #4CAF50;
+            color: #dc2626;
         }
         
         .value-title {
             font-size: 1.3rem;
-            color: #4CAF50;
+            color: #dc2626;
             margin-bottom: 15px;
             font-weight: 600;
         }
@@ -233,7 +238,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(to right, #4CAF50, #8BC34A);
+            background: #dc2626;
         }
         
         .offering-icon {
@@ -246,12 +251,12 @@
             justify-content: center;
             margin: 0 auto 20px;
             font-size: 28px;
-            color: #4CAF50;
+            color: #dc2626;
         }
         
         .offering-title {
             font-size: 1.3rem;
-            color: #4CAF50;
+            color: #dc2626;
             margin-bottom: 15px;
             font-weight: 600;
         }
@@ -351,22 +356,527 @@
                 align-items: center;
             }
         }
+
+
+        .header-navigation {
+            background-color: #fef7cd;
+            padding: 0.7rem 0;
+            border-bottom: 2px solid #dc2626;
+            position: relative;
+        }
+
+        .navigation-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #dc2626;
+        }
+
+        .brand-logo img {
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc2626;
+        }
+
+        .menu-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .menu-option {
+            margin: 0 1.5rem;
+        }
+
+        .menu-anchor {
+            text-decoration: none;
+            color: #dc2626;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+
+        .menu-anchor:hover {
+            border-bottom: 2px solid #dc2626;
+        }
+
+        /* Search Bar Styles */
+        .lookup-wrapper {
+            position: relative;
+            margin-left: 1rem;
+        }
+
+        .lookup-element {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #dc2626;
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .lookup-element:focus-within {
+            box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+        }
+
+        .lookup-field {
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #333;
+            font-size: 0.9rem;
+            width: 200px;
+            padding: 0;
+        }
+
+        .lookup-field::placeholder {
+            color: #999;
+        }
+
+        .lookup-submit {
+            background: none;
+            border: none;
+            color: #dc2626;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            padding: 0;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .lookup-submit:hover {
+            color: #b91c1c;
+        }
+
+        /* Search Button for Mobile */
+        .mobile-lookup-trigger {
+            display: none;
+            background: none;
+            border: 2px solid #dc2626;
+            color: #dc2626;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-lookup-trigger:hover {
+            background-color: #dc2626;
+            color: white;
+        }
+
+        /* Mobile Search Bar */
+        .mobile-lookup-panel {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background-color: #fef7cd;
+            padding: 1rem;
+            border-bottom: 2px solid #dc2626;
+            z-index: 1000;
+        }
+
+        .mobile-lookup-panel.active {
+            display: block;
+        }
+
+        .mobile-lookup-panel .lookup-element {
+            width: 100%;
+            max-width: none;
+        }
+
+        .mobile-lookup-panel .lookup-field {
+            width: 100%;
+        }
+
+        .menu-toggle-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            order: -1;
+            margin-right: 1rem;
+        }
+
+        .menu-toggle-icon span {
+            width: 25px;
+            height: 3px;
+            background-color: #dc2626;
+            margin: 2px 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle-icon.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-toggle-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle-icon.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Search Results */
+        .lookup-results-display {
+            background-color: white;
+            border: 2px solid #dc2626;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            display: none;
+        }
+
+        .lookup-results-display.show {
+            display: block;
+        }
+
+        .lookup-results-display h3 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            .navigation-wrapper {
+                flex-wrap: wrap;
+            }
+
+            .menu-toggle-icon {
+                display: flex;
+            }
+
+            .lookup-wrapper {
+                display: none;
+            }
+
+            .mobile-lookup-trigger {
+                display: block;
+            }
+
+            .menu-list {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #fef7cd;
+                width: 100%;
+                text-align: left;
+                padding: 2rem 0;
+                border-bottom: 2px solid #dc2626;
+                z-index: 1000;
+                transition: left 0.3s ease;
+            }
+
+            .menu-list.active {
+                left: 0;
+            }
+
+            .menu-option {
+                margin: 0;
+                padding: 0 2rem;
+            }
+
+            .menu-anchor {
+                padding: 1rem 0;
+                display: block;
+                border-bottom: none;
+            }
+
+            .menu-anchor:hover {
+                border-bottom: none;
+                background-color: rgba(220, 38, 38, 0.1);
+            }
+
+            .brand-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navigation-wrapper {
+                padding: 0 0.5rem;
+            }
+
+            .brand-logo img {
+                height: 35px;
+                width: 35px;
+            }
+
+            .brand-title {
+                font-size: 1.2rem;
+            }
+
+            .mobile-lookup-trigger {
+                margin-left: 0.5rem;
+                padding: 0.4rem;
+            }
+        }
+
+        
+
+
+        /* ---------------------------------------------------------------------------------- */
+
+
+        
+        /* Footer */
+
+        .main-content {
+            min-height: calc(100vh - 200px);
+            padding: 40px 20px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer {
+            background-color: #f5f3f0;
+            padding: 60px 0 40px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #000;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #e74c3c;
+        }
+
+        .marketplace-link {
+            color: #e74c3c !important;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid #e0ddd8;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo .red-o {
+            color: #e74c3c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #e74c3c;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+        }
+
+        .company-address {
+            grid-column: span 2;
+            padding: 20px;
+            background: rgba(231, 76, 60, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .company-address h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .company-address p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links {
+                order: -1;
+            }
+        }
+
+            .social-links {
+    display: flex;
+    gap: 12px;
+    }
+
+    .social-icon {
+    text-decoration: none;
+    font-size: 20px;
+    }
+
+    .magic {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: black;
+    color: white;
+    transition: all 0.3s ease;
+    }
+
+    .magic:hover {
+    background: linear-gradient(45deg,#e74c3c);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+
+
+
+
+
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Vadiwala Food</div>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
+        <nav class="header-navigation" id="primaryNavigation">
+        <div class="navigation-wrapper">
+            <div class="menu-toggle-icon" id="burgerIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <a href="#" class="brand-logo">
+                <img src="logo.jpg" alt="Logo">
+                <span class="brand-title">YourLogo</span>
+            </a>
+            
+            <ul class="menu-list" id="navigationMenu">
+                <li class="menu-option"><a href="#" class="menu-anchor">Home</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">About</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Services</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Gallery</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Contact</a></li>
+            </ul>
+
+            <!-- Desktop Search Bar -->
+            <div class="lookup-wrapper">
+                <form class="lookup-element" id="desktopLookupForm">
+                    <input type="text" class="lookup-field" placeholder="Search..." id="desktopLookupField">
+                    <button type="submit" class="lookup-submit">🔍</button>
+                </form>
+            </div>
+
+            <!-- Mobile Search Toggle Button -->
+            <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
         </div>
+    </nav>
     </header>
 
     <!-- Hero Section -->
@@ -603,13 +1113,89 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2023 Vadiwala Food. All rights reserved.</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- POS Section -->
+                <div class="footer-section">
+                    <h3>POS</h3>
+                    <ul>
+                        <li><a href="#">Billing</a></li>
+                        <li><a href="#">Inventory</a></li>
+                        <li><a href="#">Reporting</a></li>
+                        <li><a href="#">Online Ordering</a></li>
+                        <li><a href="#">CRM</a></li>
+                        <li><a href="#">Menu</a></li>
+                    </ul>
+                    <a href="#" style="background: #333; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 15px;">Take a free demo</a>
+                </div>
+
+                <!-- Add-ons Section -->
+                <div class="footer-section">
+                    <h3>Add-ons</h3>
+                    <ul>
+                        <li><a href="#">Marketplace</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+
+                <!-- Outlet Types Section -->
+                <div class="footer-section">
+                    <h3>Outlet types</h3>
+                    <ul>
+                        <li><a href="#">Fine Dine</a></li>
+                        <li><a href="#">QSR</a></li>
+                        <li><a href="#">Cafe</a></li>
+                        <li><a href="#">Food Court</a></li>
+                        <li><a href="#">Cloud Kitchen</a></li>
+                        <li><a href="#">Ice Cream</a></li>
+                        <li><a href="#">Bakery</a></li>
+                        <li><a href="#">Bar & Brewery</a></li>
+                        <li><a href="#">Pizzeria</a></li>
+                        <li><a href="#">Large Chains</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Section -->
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Reseller</a></li>
+                        <li><a href="#">Magazine</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="logo-section">
+                    <div class="logo">
+                            VADI<span class="red-o">W</span><span class="red-o">A</span>LA
+                    </div>
+                </div>
+
+    <div class="social-links">
+        <a href="#" class="social-icon magic"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon magic"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon magic"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>+919104369797</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉</span>
+                        <span>getposs@petpooja.com</span>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
