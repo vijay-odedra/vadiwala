@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Vadiwala Food</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" >
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: rgb(16, 123, 199);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: blue;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+             /* Navigation Bar Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header-navigation {
+            background-color: #fef7cd;
+            padding: 0.7rem 0;
+            border-bottom: 2px solid #dc2626;
+            position: relative;
+        }
+
+        .navigation-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #dc2626;
+        }
+
+        .brand-logo img {
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc2626;
+        }
+
+        .menu-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .menu-option {
+            margin: 0 1.5rem;
+        }
+
+        .menu-anchor {
+            text-decoration: none;
+            color: #dc2626;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+
+        .menu-anchor:hover {
+            border-bottom: 2px solid #dc2626;
+        }
+
+        /* Order Button Styles */
+        .order-button {
+            background-color: #dc2626;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .order-button:hover {
+            background-color: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .order-button i {
+            font-size: 1rem;
+        }
+
+        /* Search Bar Styles */
+        .lookup-wrapper {
+            position: relative;
+            margin-left: 1rem;
+        }
+
+        .lookup-element {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #dc2626;
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .lookup-element:focus-within {
+            box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+        }
+
+        .lookup-field {
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #333;
+            font-size: 0.9rem;
+            width: 200px;
+            padding: 0;
+        }
+
+        .lookup-field::placeholder {
+            color: #999;
+        }
+
+        .lookup-submit {
+            background: none;
+            border: none;
+            color: #dc2626;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            padding: 0;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .lookup-submit:hover {
+            color: #b91c1c;
+        }
+
+        /* Search Button for Mobile */
+        .mobile-lookup-trigger {
+            display: none;
+            background: none;
+            border: 2px solid #dc2626;
+            color: #dc2626;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-lookup-trigger:hover {
+            background-color: #dc2626;
+            color: white;
+        }
+
+        /* Mobile Search Bar */
+        .mobile-lookup-panel {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background-color: #fef7cd;
+            padding: 1rem;
+            border-bottom: 2px solid #dc2626;
+            z-index: 1000;
+        }
+
+        .mobile-lookup-panel.active {
+            display: block;
+        }
+
+        .mobile-lookup-panel .lookup-element {
+            width: 100%;
+            max-width: none;
+        }
+
+        .mobile-lookup-panel .lookup-field {
+            width: 100%;
+        }
+
+        .menu-toggle-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            order: -1;
+            margin-right: 1rem;
+        }
+
+        .menu-toggle-icon span {
+            width: 25px;
+            height: 3px;
+            background-color: #dc2626;
+            margin: 2px 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle-icon.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-toggle-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle-icon.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Search Results */
+        .lookup-results-display {
+            background-color: white;
+            border: 2px solid #dc2626;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            display: none;
+        }
+
+        .lookup-results-display.show {
+            display: block;
+        }
+
+        .lookup-results-display h3 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        /* Action buttons container for better organization */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            .navigation-wrapper {
+                flex-wrap: wrap;
+            }
+
+            .menu-toggle-icon {
+                display: flex;
+            }
+
+            .lookup-wrapper {
+                display: none;
+            }
+
+            .mobile-lookup-trigger {
+                display: block;
+            }
+
+            .menu-list {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #fef7cd;
+                width: 100%;
+                text-align: left;
+                padding: 2rem 0;
+                border-bottom: 2px solid #dc2626;
+                z-index: 1000;
+                transition: left 0.3s ease;
+            }
+
+            .menu-list.active {
+                left: 0;
+            }
+
+            .menu-option {
+                margin: 0;
+                padding: 0 2rem;
+            }
+
+            .menu-anchor {
+                padding: 1rem 0;
+                display: block;
+                border-bottom: none;
+            }
+
+            .menu-anchor:hover {
+                border-bottom: none;
+                background-color: rgba(220, 38, 38, 0.1);
+            }
+
+            .brand-title {
+                font-size: 1.3rem;
+            }
+
+            /* Mobile Order Button Adjustments */
+            .order-button {
+                margin-left: 0.5rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .nav-actions {
+                gap: 0.5rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navigation-wrapper {
+                padding: 0 0.5rem;
+            }
+
+            .brand-logo img {
+                height: 35px;
+                width: 35px;
+            }
+
+            .brand-title {
+                font-size: 1.2rem;
+            }
+
+            .mobile-lookup-trigger {
+                margin-left: 10rem;
+                padding: 0.4rem;
+            }
+
+            .order-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+                margin-left: 0.25rem;
+            }
+
+            .order-button span {
+                display: none; /* Hide text on very small screens, keep icon */
+            }
+        }
+
+        
+
+
+        /* ---------------------------------------------------------------------------------- */
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .hero-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 700px;
+        }
+        
+        .hero-content h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Section Styling */
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story, .mission, .values, .offerings, .team, .trust, .cta {
+            text-align: center;
+        }
+        
+        /* Enhanced Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: #f1f8e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: #dc2626;
+        }
+        
+        .value-title {
+            font-size: 1.3rem;
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        /* Enhanced Offerings Section */
+        .offerings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .offering-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offering-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .offering-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #dc2626;
+        }
+        
+        .offering-icon {
+            width: 70px;
+            height: 70px;
+            background: #f1f8e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: #dc2626;
+        }
+        
+        .offering-title {
+            font-size: 1.3rem;
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        /* Two-tone sections */
+        .tone-section {
+            background: linear-gradient(to bottom, #f9f9f9, #fff);
+        }
+        
+        /* Team Section */
+        .team-members {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            width: 200px;
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #4CAF50;
+        }
+        
+        /* Trust Section */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .badge {
+            width: 150px;
+            text-align: center;
+        }
+        
+        .badge img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #4CAF50;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .values-grid, .offerings-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-members, .trust-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+
+        .header-navigation {
+            background-color: #fef7cd;
+            padding: 0.7rem 0;
+            border-bottom: 2px solid #dc2626;
+            position: relative;
+        }
+
+        .navigation-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #dc2626;
+        }
+
+        .brand-logo img {
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc2626;
+        }
+
+        .menu-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .menu-option {
+            margin: 0 1.5rem;
+        }
+
+        .menu-anchor {
+            text-decoration: none;
+            color: #dc2626;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+
+        .menu-anchor:hover {
+            border-bottom: 2px solid #dc2626;
+        }
+
+        /* Search Bar Styles */
+        .lookup-wrapper {
+            position: relative;
+            margin-left: 1rem;
+        }
+
+        .lookup-element {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #dc2626;
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .lookup-element:focus-within {
+            box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+        }
+
+        .lookup-field {
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #333;
+            font-size: 0.9rem;
+            width: 200px;
+            padding: 0;
+        }
+
+        .lookup-field::placeholder {
+            color: #999;
+        }
+
+        .lookup-submit {
+            background: none;
+            border: none;
+            color: #dc2626;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            padding: 0;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .lookup-submit:hover {
+            color: #b91c1c;
+        }
+
+        /* Search Button for Mobile */
+        .mobile-lookup-trigger {
+            display: none;
+            background: none;
+            border: 2px solid #dc2626;
+            color: #dc2626;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-lookup-trigger:hover {
+            background-color: #dc2626;
+            color: white;
+        }
+
+        /* Mobile Search Bar */
+        .mobile-lookup-panel {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background-color: #fef7cd;
+            padding: 1rem;
+            border-bottom: 2px solid #dc2626;
+            z-index: 1000;
+        }
+
+        .mobile-lookup-panel.active {
+            display: block;
+        }
+
+        .mobile-lookup-panel .lookup-element {
+            width: 100%;
+            max-width: none;
+        }
+
+        .mobile-lookup-panel .lookup-field {
+            width: 100%;
+        }
+
+        .menu-toggle-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            order: -1;
+            margin-right: 1rem;
+        }
+
+        .menu-toggle-icon span {
+            width: 25px;
+            height: 3px;
+            background-color: #dc2626;
+            margin: 2px 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle-icon.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-toggle-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle-icon.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Search Results */
+        .lookup-results-display {
+            background-color: white;
+            border: 2px solid #dc2626;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            display: none;
+        }
+
+        .lookup-results-display.show {
+            display: block;
+        }
+
+        .lookup-results-display h3 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            .navigation-wrapper {
+                flex-wrap: wrap;
+            }
+
+            .menu-toggle-icon {
+                display: flex;
+            }
+
+            .lookup-wrapper {
+                display: none;
+            }
+
+            .mobile-lookup-trigger {
+                display: block;
+            }
+
+            .menu-list {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #fef7cd;
+                width: 100%;
+                text-align: left;
+                padding: 2rem 0;
+                border-bottom: 2px solid #dc2626;
+                z-index: 1000;
+                transition: left 0.3s ease;
+            }
+
+            .menu-list.active {
+                left: 0;
+            }
+
+            .menu-option {
+                margin: 0;
+                padding: 0 2rem;
+            }
+
+            .menu-anchor {
+                padding: 1rem 0;
+                display: block;
+                border-bottom: none;
+            }
+
+            .menu-anchor:hover {
+                border-bottom: none;
+                background-color: rgba(220, 38, 38, 0.1);
+            }
+
+            .brand-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navigation-wrapper {
+                padding: 0 0.5rem;
+            }
+
+            .brand-logo img {
+                height: 35px;
+                width: 35px;
+            }
+
+            .brand-title {
+                font-size: 1.2rem;
+            }
+
+            .mobile-lookup-trigger {
+                margin-left: 0.5rem;
+                padding: 0.4rem;
+            }
+        }
+
+        
+
+
+        /* ---------------------------------------------------------------------------------- */
+
+
+        
+        /* Footer */
+
+        .main-content {
+            min-height: calc(100vh - 200px);
+            padding: 40px 20px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer {
+            background-color: #f5f3f0;
+            padding: 60px 0 40px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #000;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #e74c3c;
+        }
+
+        .marketplace-link {
+            color: #e74c3c !important;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid #e0ddd8;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo .red-o {
+            color: #e74c3c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #e74c3c;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+        }
+
+        .company-address {
+            grid-column: span 2;
+            padding: 20px;
+            background: rgba(231, 76, 60, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .company-address h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .company-address p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links {
+                order: -1;
+            }
+        }
+
+            .social-links {
+    display: flex;
+    gap: 12px;
+    }
+
+    .social-icon {
+    text-decoration: none;
+    font-size: 20px;
+    }
+
+    .magic {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: black;
+    color: white;
+    transition: all 0.3s ease;
+    }
+
+    .magic:hover {
+    background: linear-gradient(45deg,#e74c3c);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+     
+    <!-- Navigation Component -->
+    <nav class="header-navigation" id="primaryNavigation">
+        <div class="navigation-wrapper">
+            <div class="menu-toggle-icon" id="burgerIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <a href="#" class="brand-logo">
+                <img src="https://via.placeholder.com/40x40/dc2626/ffffff?text=L" alt="Logo">
+                <span class="brand-title">YourLogo</span>
+            </a>
+            
+            <ul class="menu-list" id="navigationMenu">
+                <li class="menu-option"><a href="#" class="menu-anchor">Home</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">About</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Services</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Gallery</a></li>
+                <li class="menu-option"><a href="#" class="menu-anchor">Menu</a></li>
+            </ul>
+
+            <!-- Action buttons container -->
+            <div class="nav-actions">
+                <!-- Desktop Search Bar -->
+                <div class="lookup-wrapper">
+                    <form class="lookup-element" id="desktopLookupForm">
+                        <input type="text" class="lookup-field" placeholder="Search..." id="desktopLookupField">
+                        <button type="submit" class="lookup-submit">🔍</button>
+                    </form>
+                </div>
+
+                <!-- Mobile Search Toggle Button -->
+                <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
+
+                <!-- Order Button -->
+                <a href="#" class="order-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Order Now</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slides">
+            <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="hero-content">
+                    <h1>Welcome to Vadiwala</h1>
+                    <p>Authentic flavors, crafted with love and tradition</p>
+                    <a href="#" class="btn">Explore Our Menu</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="hero-content">
+                    <h1>Fresh Ingredients</h1>
+                    <p>We use only the freshest, locally sourced ingredients</p>
+                    <a href="#" class="btn">Learn About Our Sourcing</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="hero-content">
+                    <h1>Traditional Recipes</h1>
+                    <p>Our recipes have been passed down for generations</p>
+                    <a href="#" class="btn">Discover Our Story</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="hero-content">
+                    <h1>Healthy & Delicious</h1>
+                    <p>Enjoy meals that are both nutritious and flavorful</p>
+                    <a href="#" class="btn">View Nutrition Info</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="hero-content">
+                    <h1>Family Favorites</h1>
+                    <p>Meals that bring families together around the table</p>
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="story">
+        <div class="container">
+            <div class="section-content">
+                <h2>Our Story</h2>
+                <p>Vadiwala began as a small family kitchen in 2005, with Grandma Asha's secret recipes that had been passed down through generations. What started as homemade meals for friends and neighbors quickly grew into a beloved local food destination.</p>
+                <p>Today, we continue to honor those traditions while embracing innovation, bringing you the authentic flavors of home-cooked meals with the convenience of modern life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <section class="mission tone-section">
+        <div class="container">
+            <div class="section-content">
+                <h2>Our Mission</h2>
+                <p>At Vadiwala, our mission is simple: to deliver delicious, authentic, and nutritious food that brings people together. We believe that good food is not just about taste, but about the memories created around the table.</p>
+                <p>We're committed to using locally-sourced, fresh ingredients and traditional cooking methods to create meals that nourish both body and soul.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="values">
+        <div class="container">
+            <div class="section-content">
+                <h2>Our Values</h2>
+                <p>These core principles guide everything we do at Vadiwala, from ingredient selection to customer service.</p>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="value-title">Quality</h3>
+                        <p>We never compromise on ingredients or preparation methods, ensuring every dish meets our high standards.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3 class="value-title">Authenticity</h3>
+                        <p>We honor traditional recipes and cooking techniques that have been perfected over generations.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="value-title">Sustainability</h3>
+                        <p>We source locally and minimize our environmental impact through eco-friendly practices.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="value-title">Community</h3>
+                        <p>We believe in giving back and supporting local producers, farmers, and food artisans.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="value-title">Innovation</h3>
+                        <p>We continuously improve while respecting tradition, finding new ways to delight our customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer -->
+    <section class="offerings tone-section">
+        <div class="container">
+            <div class="section-content">
+                <h2>What We Offer</h2>
+                <p>Discover our range of services designed to bring authentic flavors to your table.</p>
+                
+                <div class="offerings-grid">
+                    <div class="offering-card">
+                        <div class="offering-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="offering-title">Freshly Prepared Meals</h3>
+                        <p>Cooked daily using traditional methods and the finest ingredients for authentic flavor.</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <div class="offering-icon">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <h3 class="offering-title">Catering Services</h3>
+                        <p>For events, weddings, and corporate functions with customized menu options.</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <div class="offering-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="offering-title">Cooking Classes</h3>
+                        <p>Learn to cook authentic dishes from our chefs in hands-on sessions.</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <div class="offering-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3 class="offering-title">Meal Subscriptions</h3>
+                        <p>Weekly deliveries of our most popular dishes for convenient meal planning.</p>
+                    </div>
+                    
+                    <div class="offering-card">
+                        <div class="offering-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="offering-title">Special Diets</h3>
+                        <p>Vegetarian, vegan, gluten-free, and allergy-friendly options available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="team">
+        <div class="container">
+            <div class="section-content">
+                <h2>Our Team</h2>
+                <p>Behind every Vadiwala meal is a team of passionate food lovers dedicated to delivering exceptional culinary experiences.</p>
+                
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Portrait of Chef Raj, Head Chef at Vadiwala">
+                        <h3>Chef Raj</h3>
+                        <p>Head Chef</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Portrait of Priya, Nutritionist at Vadiwala">
+                        <h3>Priya</h3>
+                        <p>Nutritionist</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Portrait of Amit, Operations Manager at Vadiwala">
+                        <h3>Amit</h3>
+                        <p>Operations Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="trust tone-section">
+        <div class="container">
+            <div class="section-content">
+                <h2>Trust & Quality Assurance</h2>
+                <p>Your trust is our most valued ingredient. We maintain the highest standards of food safety and quality control.</p>
+                
+                <div class="trust-badges">
+                    <div class="badge">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Organic Certification Badge">
+                        <p>Organic Certified</p>
+                    </div>
+                    <div class="badge">
+                        <img src="https://images.unsplash.com/photo-1617200147207-4f4e5ddee0be?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Food Safety Certification Badge">
+                        <p>Food Safety Certified</p>
+                    </div>
+                    <div class="badge">
+                        <img src="https://images.unsplash.com/photo-1596526131083-e8c633c3c8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Local Business Award Badge">
+                        <p>Local Business Award 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="section-content">
+                <h2>Experience Vadiwala Today</h2>
+                <p>Ready to taste the difference that passion and tradition make?</p>
+                <a href="#" class="btn">View Our Menu</a>
+                <p style="margin-top: 20px;">Or give us a call: (555) 123-4567</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- POS Section -->
+                <div class="footer-section">
+                    <h3>POS</h3>
+                    <ul>
+                        <li><a href="#">Billing</a></li>
+                        <li><a href="#">Inventory</a></li>
+                        <li><a href="#">Reporting</a></li>
+                        <li><a href="#">Online Ordering</a></li>
+                        <li><a href="#">CRM</a></li>
+                        <li><a href="#">Menu</a></li>
+                    </ul>
+                    <a href="#" style="background: #333; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 15px;">Take a free demo</a>
+                </div>
+
+                <!-- Add-ons Section -->
+                <div class="footer-section">
+                    <h3>Add-ons</h3>
+                    <ul>
+                        <li><a href="#">Marketplace</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+
+                <!-- Outlet Types Section -->
+                <div class="footer-section">
+                    <h3>Outlet types</h3>
+                    <ul>
+                        <li><a href="#">Fine Dine</a></li>
+                        <li><a href="#">QSR</a></li>
+                        <li><a href="#">Cafe</a></li>
+                        <li><a href="#">Food Court</a></li>
+                        <li><a href="#">Cloud Kitchen</a></li>
+                        <li><a href="#">Ice Cream</a></li>
+                        <li><a href="#">Bakery</a></li>
+                        <li><a href="#">Bar & Brewery</a></li>
+                        <li><a href="#">Pizzeria</a></li>
+                        <li><a href="#">Large Chains</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Section -->
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Reseller</a></li>
+                        <li><a href="#">Magazine</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="logo-section">
+                    <div class="logo">
+                            VADI<span class="red-o">W</span><span class="red-o">A</span>LA
+                    </div>
+                </div>
+            <div class="social-links">
+                <a href="#" class="social-icon magic"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon magic"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon magic"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>+919104369797</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉</span>
+                        <span>getposs@petpooja.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hero image rotation
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+            
+            // Function to show next slide
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Start slideshow
+            setInterval(nextSlide, 3000); // Change slide every 3 seconds
+            
+            console.log('Vadiwala About Page loaded');
+        });
+    </script>
+</body>
+</html>
