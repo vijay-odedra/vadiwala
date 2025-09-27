@@ -3,343 +3,712 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <title>Navigation Component</title>
-
+    <title>Vadiwala | Where Time Stands Still</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FFF8F0;
+            --cream-dark: #F5E6D3;
+            --red: #9A031E;
+            --red-light: #B23A48;
+            --red-dark: #7A0014;
+            --gold: #C8A97E;
+            --dark: #2A2A2A;
+            --light: #6A6A6A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.4s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 248, 240, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--red);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--red);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        nav a:hover {
+            color: var(--red);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 248, 240, 0.7), rgba(255, 248, 240, 0.9)), 
+                        url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--red);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: var(--light);
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--red);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 2px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background-color: var(--red-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Experience Section */
+        .experience {
+            padding: 8rem 0;
+            background-color: var(--cream-dark);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--red);
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 2px;
+            background-color: var(--red);
+            margin: 1rem auto;
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .experience-card {
+            background-color: var(--cream);
+            padding: 2.5rem;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .experience-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--red);
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--red);
+            margin-bottom: 1.5rem;
+        }
+        
+        .experience-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .experience-card p {
+            color: var(--light);
+            font-size: 1rem;
+        }
+        
+        /* Atmosphere Section */
+        .atmosphere {
+            height: 100vh;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .atmosphere-left, .atmosphere-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+        
+        .atmosphere-left {
+            background-color: var(--cream);
+            color: var(--dark);
+            background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .atmosphere-left:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 248, 240, 0.85);
+        }
+        
+        .atmosphere-right {
+            background-color: var(--red);
+            color: var(--cream);
+            background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .atmosphere-right:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(154, 3, 30, 0.85);
+        }
+        
+        .atmosphere-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 400px;
+        }
+        
+        .atmosphere-heading {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .atmosphere-word {
+            font-size: 3.5rem;
+            font-weight: 700;
+            transition: opacity 0.3s ease;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .atmosphere-left .atmosphere-word {
+            color: var(--red);
+        }
+        
+        .atmosphere-right .atmosphere-word {
+            color: var(--cream);
+        }
+        
+        /* Scent Section */
+        .scent {
+            padding: 8rem 0;
+            background-color: var(--cream);
+        }
+        
+        .scent-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .scent-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .scent-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 5px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scent-content {
+            flex: 1;
+            padding-left: 5rem;
+        }
+        
+        .scent-heading {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--red);
+        }
+        
+        .scent-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--light);
+            margin-bottom: 2rem;
+        }
+        
+        .highlight {
+            color: var(--red);
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--cream);
+            padding: 5rem 0 2rem;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--cream);
+        }
+        
+        .footer-name {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            color: var(--cream);
+        }
+        
+        .footer-contact {
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        
+        .footer-address {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 2rem;
+        }
+        
+        .footer-invitation {
+            color: var(--red-light);
+            font-style: italic;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--cream);
+            margin: 0 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--red);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .atmosphere {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .scent-container {
+                flex-direction: column;
+            }
+            
+            .scent-content {
+                padding-left: 0;
+                padding-top: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Navigation Component -->
-    <nav class="header-navigation" id="primaryNavigation">
-        <div class="navigation-wrapper">
-            <div class="menu-toggle-icon" id="burgerIcon">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-door-open logo-icon"></i>
+                    Vadiwala
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#atmosphere">Atmosphere</a></li>
+                        <li><a href="#scent">Scent</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
-            
-            <a href="#" class="brand-logo">
-                <img src="https://via.placeholder.com/40x40/dc2626/ffffff?text=L" alt="Logo">
-                <span class="brand-title">YourLogo</span>
-            </a>
-            
-            <ul class="menu-list" id="navigationMenu">
-                <li class="menu-option"><a href="#" class="menu-anchor">Home</a></li>
-                <li class="menu-option"><a href="#" class="menu-anchor">About</a></li>
-                <li class="menu-option"><a href="#" class="menu-anchor">Services</a></li>
-                <li class="menu-option"><a href="#" class="menu-anchor">Gallery</a></li>
-                <li class="menu-option"><a href="#" class="menu-anchor">Menu</a></li>
-            </ul>
-
-            <!-- Desktop Search Bar -->
-            <div class="lookup-wrapper">
-                <form class="lookup-element" id="desktopLookupForm">
-                    <input type="text" class="lookup-field" placeholder="Search..." id="desktopLookupField">
-                    <button type="submit" class="lookup-submit">🔍</button>
-                </form>
-            </div>
-
-            <!-- Mobile Search Toggle Button -->
-            <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
-        </div>
-    </nav>
-
-
-
-
-    <!-- Slideshow Header Component -->
-    <header id="main-slideshow-header" class="slideshow-header">
-        <div class="slideshow-container">
-            <div class="slide active" style="background: url(2.jpg);">
-                <div class="content-panel">
-                    <h1 class="main-title">Welcome</h1>
-                    <p class="description">Discover amazing experiences with our innovative platform designed for the modern world.</p>
-                    <a href="#" class="action-btn">Get Started</a>
-                </div>
-            </div>
-
-            <div class="slide" style="background: url(3.jpg);">
-                <div class="content-panel">
-                    <h1 class="main-title">Create</h1>
-                    <p class="description">Unleash your creativity with powerful tools that bring your ideas to life effortlessly.</p>
-                    <a href="#" class="action-btn">Start Creating</a>
-                </div>
-            </div>
-
-            <div class="slide" style="background: url(4.jpg);">
-                <div class="content-panel">
-                    <h1 class="main-title">Connect</h1>
-                    <p class="description">Join millions of users worldwide and build meaningful connections that matter.</p>
-                    <a href="#" class="action-btn">Join Now</a>
-                </div>
-            </div>
-
-            <div class="slide" style="background: url(5.jpg);">
-                <div class="content-panel">
-                    <h1 class="main-title">Grow</h1>
-                    <p class="description">Scale your success with our comprehensive suite of growth-focused solutions.</p>
-                    <a href="#" class="action-btn">Learn More</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="progress-indicator">
-            <div class="progress-fill"></div>
-        </div>
-
-        <div class="dots-indicator">
-            <div class="nav-dot active"></div>
-            <div class="nav-dot"></div>
-            <div class="nav-dot"></div>
-            <div class="nav-dot"></div>
         </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Where Time Stands Still</h1>
+                <p>At Vadiwala, we don't just offer accommodation; we offer an experience that lingers in your memory long after you've departed.</p>
+                <a href="#experience" class="btn">Discover Vadiwala</a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Vadiwala Experience</h2>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="card-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Sanctuary of Serenity</h3>
+                    <p>Our spaces are designed to be havens of peace, where the outside world fades into a distant memory.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="card-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>Intuitive Service</h3>
+                    <p>Our staff anticipates your needs before you even voice them, creating a seamless experience.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="card-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Nature's Embrace</h3>
+                    <p>Surrounded by lush gardens and tranquil water features, Vadiwala connects you with nature.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atmosphere Section -->
+    <section class="atmosphere" id="atmosphere">
+        <div class="atmosphere-left" id="leftPanel">
+            <div class="atmosphere-content">
+                <h2 class="atmosphere-heading">The Stillness of...</h2>
+                <div class="atmosphere-word" id="leftWord">Morning</div>
+            </div>
+        </div>
+        <div class="atmosphere-right" id="rightPanel">
+            <div class="atmosphere-content">
+                <h2 class="atmosphere-heading">The Vibrancy of...</h2>
+                <div class="atmosphere-word" id="rightWord">Evening</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scent Section -->
+    <section class="scent" id="scent">
+        <div class="container">
+            <div class="scent-container">
+                <div class="scent-image">
+                    <img src="https://images.unsplash.com/photo-1615634263167-43c2d0bb6f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Scented elements">
+                </div>
+                <div class="scent-content">
+                    <h2 class="scent-heading">An Olfactory Signature</h2>
+                    <p class="scent-text">
+                        Upon arrival, you are greeted not just by a smile, but by a scent. Our signature blend of 
+                        <span class="highlight">sandalwood</span>, <span class="highlight">vanilla</span>, and a hint of 
+                        <span class="highlight">bergamot</span> is woven into the very fabric of our space. It is the first 
+                        memory we give you, and the one we hope you take with you.
+                    </p>
+                    <a href="#contact" class="btn">Experience Our World</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-
-
-    <div class="main-content">
-        <h1>Welcome to Petpooja</h1>
-        <p>Your restaurant management solution</p>
-    </div>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <!-- POS Section -->
-                <div class="footer-section">
-                    <h3>POS</h3>
-                    <ul>
-                        <li><a href="#">Billing</a></li>
-                        <li><a href="#">Inventory</a></li>
-                        <li><a href="#">Reporting</a></li>
-                        <li><a href="#">Online Ordering</a></li>
-                        <li><a href="#">CRM</a></li>
-                        <li><a href="#">Menu</a></li>
-                    </ul>
-                    <a href="#" style="background: #333; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 15px;">Take a free demo</a>
-                </div>
-
-                <!-- Add-ons Section -->
-                <div class="footer-section">
-                    <h3>Add-ons</h3>
-                    <ul>
-                        <li><a href="#">Marketplace</a></li>
-                        <li><a href="#">Integrations</a></li>
-                    </ul>
-                </div>
-
-                <!-- Outlet Types Section -->
-                <div class="footer-section">
-                    <h3>Outlet types</h3>
-                    <ul>
-                        <li><a href="#">Fine Dine</a></li>
-                        <li><a href="#">QSR</a></li>
-                        <li><a href="#">Cafe</a></li>
-                        <li><a href="#">Food Court</a></li>
-                        <li><a href="#">Cloud Kitchen</a></li>
-                        <li><a href="#">Ice Cream</a></li>
-                        <li><a href="#">Bakery</a></li>
-                        <li><a href="#">Bar & Brewery</a></li>
-                        <li><a href="#">Pizzeria</a></li>
-                        <li><a href="#">Large Chains</a></li>
-                    </ul>
-                </div>
-
-                <!-- Resources Section -->
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Reseller</a></li>
-                        <li><a href="#">Magazine</a></li>
-                    </ul>
-                </div>
-
-
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-logo">VW</div>
+            <div class="footer-name">Hotel Vadiwala</div>
+            <div class="footer-contact">
+                Reservations: (555) 123-4567<br>
+                welcome@vadiwala.com
             </div>
-
-            <div class="footer-bottom">
-                <div class="logo-section">
-                    <div class="logo">
-                        VADI<span class="red-o">W</span><span class="red-o">A</span>LA
-                    </div>
-                </div>
-
+            <div class="footer-address">
+                123 Serenity Lane, Tranquil District<br>
+                Harmony City, HC 10101
+            </div>
+            <div class="footer-invitation">We await your story.</div>
             <div class="social-links">
-                <a href="#" class="social-icon magic"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon magic"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon magic"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
-
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span>📞</span>
-                        <span>+919104369797</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>✉</span>
-                        <span>getposs@petpooja.com</span>
-                    </div>
-                </div>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>
 
-
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-        const searchToggle = document.getElementById('searchToggle');
-        const mobileSearch = document.getElementById('mobileSearch');
-        const searchForm = document.getElementById('searchForm');
-        const mobileSearchForm = document.getElementById('mobileSearchForm');
-        const searchInput = document.getElementById('searchInput');
-        const mobileSearchInput = document.getElementById('mobileSearchInput');
-        const searchResults = document.getElementById('searchResults');
-        const searchResultsText = document.getElementById('searchResultsText');
-
-        // Hamburger menu functionality
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            
-            // Close search if open
-            mobileSearch.classList.remove('active');
-        });
-
-        // Mobile search toggle functionality
-        searchToggle.addEventListener('click', function() {
-            mobileSearch.classList.toggle('active');
-            
-            // Close menu if open
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            
-            // Focus on search input when opened
-            if (mobileSearch.classList.contains('active')) {
-                setTimeout(() => {
-                    mobileSearchInput.focus();
-                }, 100);
-            }
-        });
-
-        // Search functionality
-        function handleSearch(searchTerm) {
-            if (searchTerm.trim()) {
-                searchResultsText.textContent = `You searched for: "${searchTerm}"`;
-                searchResults.classList.add('show');
-                
-                // Scroll to results
-                searchResults.scrollIntoView({ behavior: 'smooth' });
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
             } else {
-                searchResults.classList.remove('show');
+                header.classList.remove('scrolled');
             }
+        });
+
+        // Atmosphere section word changes
+        const leftPanel = document.getElementById('leftPanel');
+        const rightPanel = document.getElementById('rightPanel');
+        const leftWord = document.getElementById('leftWord');
+        const rightWord = document.getElementById('rightWord');
+        
+        const leftWords = ['Morning', 'Solitude', 'Light', 'Calm', 'Serenity'];
+        const rightWords = ['Evening', 'Company', 'Ambiance', 'Stories', 'Connection'];
+        
+        let leftIndex = 0;
+        let rightIndex = 0;
+        
+        leftPanel.addEventListener('mouseenter', () => {
+            leftIndex = (leftIndex + 1) % leftWords.length;
+            fadeWord(leftWord, leftWords[leftIndex]);
+        });
+        
+        rightPanel.addEventListener('mouseenter', () => {
+            rightIndex = (rightIndex + 1) % rightWords.length;
+            fadeWord(rightWord, rightWords[rightIndex]);
+        });
+        
+        function fadeWord(element, newWord) {
+            element.style.opacity = 0;
+            setTimeout(() => {
+                element.textContent = newWord;
+                element.style.opacity = 1;
+            }, 300);
         }
-
-        // Desktop search form
-        searchForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            handleSearch(searchInput.value);
-        });
-
-        // Mobile search form
-        mobileSearchForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            handleSearch(mobileSearchInput.value);
-            mobileSearch.classList.remove('active');
-        });
-
-        // Close menu when clicking on a link (mobile)
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
-
-        // Close menu and search when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInsideNav = hamburger.contains(event.target) || navMenu.contains(event.target);
-            const isClickInsideSearch = searchToggle.contains(event.target) || mobileSearch.contains(event.target);
-            
-            if (!isClickInsideNav) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-            
-            if (!isClickInsideSearch) {
-                mobileSearch.classList.remove('active');
-            }
+        
+        // Add scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.experience-card, .scent-container, .section-title').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(element);
         });
-
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                // Reset mobile elements on desktop
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                mobileSearch.classList.remove('active');
-            }
-        });
-
-
-        //------------------------------------------------------------------------------------
-
-
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.nav-dot');
-        const totalSlides = slides.length;
-        let slideInterval;
-
-        function showSlide(index) {
-            // Remove active classes
-            slides.forEach(slide => slide.classList.remove('active', 'exit'));
-            dots.forEach(dot => dot.classList.remove('active'));
-
-            // Add exit class to current slide
-            if (slides[currentSlide]) {
-                slides[currentSlide].classList.add('exit');
-            }
-
-            // Update current slide
-            currentSlide = index;
-
-            // Show new slide
-            setTimeout(() => {
-                slides.forEach(slide => slide.classList.remove('exit'));
-                slides[currentSlide].classList.add('active');
-                dots[currentSlide].classList.add('active');
-            }, 100);
-
-            // Restart progress animation
-            const progressFill = document.querySelector('.progress-fill');
-            progressFill.style.animation = 'none';
-            progressFill.offsetHeight;
-            progressFill.style.animation = 'fillProgress 4s linear infinite';
-        }
-
-        function nextSlide() {
-            const nextIndex = (currentSlide + 1) % totalSlides;
-            showSlide(nextIndex);
-        }
-
-        function startSlideshow() {
-            slideInterval = setInterval(nextSlide, 4000);
-        }
-
-        // Initialize slideshow - starts automatically
-        showSlide(0);
-        startSlideshow();
-
     </script>
 </body>
 </html>
