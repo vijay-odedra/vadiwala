@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <title>Navigation Component</title>
-
-    <style>
-
-     /* Navigation Bar Styles */
+   /* Navigation Bar Styles */
         * {
             margin: 0;
             padding: 0;
@@ -354,10 +344,477 @@
             }
         }
 
+                
+
+
+
+        :root {
+            --primary-red: #c62828;
+            --secondary-cream: #f5f5f5;
+            --accent-dark: #333;
+            --text-light: #fff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
         
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary-cream);
+            color: var(--accent-dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-red);
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+        }
+        
+        .admin-controls {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        button {
+            background-color: var(--secondary-cream);
+            color: var(--primary-red);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        button:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .menu-categories {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .category-btn {
+            background-color: white;
+            color: var(--accent-dark);
+            border: 1px solid #ddd;
+            white-space: nowrap;
+        }
+        
+        .category-btn.active {
+            background-color: var(--primary-red);
+            color: var(--text-light);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .menu-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .menu-card-content {
+            padding: 1rem;
+        }
+        
+        .menu-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-red);
+        }
+        
+        .menu-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .menu-card-price {
+            font-weight: bold;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+        }
+        
+        .order-btn {
+            width: 100%;
+            margin-top: 1rem;
+            background-color: var(--primary-red);
+            color: white;
+        }
+        
+        .expiry-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            background: none;
+            color: var(--accent-dark);
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--primary-red);
+            outline: none;
+        }
+        
+        .sub-items {
+            margin: 1rem 0;
+        }
+        
+        .sub-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sub-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .payment-method.selected {
+            border-color: var(--primary-red);
+            background-color: rgba(198, 40, 40, 0.1);
+        }
+        
+        /* Admin Panel Styles */
+        .admin-panel {
+            display: none;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .image-upload {
+            border: 2px dashed #ddd;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .image-upload:hover {
+            border-color: var(--primary-red);
+        }
+        
+        .sub-item-input {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sub-item-input input {
+            flex: 1;
+        }
+        
+        .success-message {
+            background-color: #4caf50;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: none;
+            text-align: center;
+        }
+        
+        /* Order History Styles */
+        .order-history {
+            display: none;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .order-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+            position: relative;
+        }
+        
+        .order-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .cancel-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .delete-btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Token Display */
+        .token-display {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        
+        .token-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .estimated-time {
+            font-size: 1.2rem;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        
+        /* Cancellation Modal */
+        .cancellation-reason {
+            margin: 1rem 0;
+        }
+        
+        .cancellation-reason textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* Status Badges */
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+        
+        .status-confirmed {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        .status-cancelled {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .admin-controls {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .payment-methods {
+                flex-direction: column;
+            }
+            
+            .order-actions {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 1rem;
+            }
+            
+            .sub-item-input {
+                flex-direction: column;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Hide back button */
+        .back-button {
+            display: none;
+        }
+        
+        /* Disabled state for expired items */
+        .expired {
+            opacity: 0.7;
+        }
+        
+        .expired .order-btn {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
 
 
-        /* ---------------------------------------------------------------------------------- */
+
+                /* ---------------------------------------------------------------------------------- */
 
 
         
@@ -547,249 +1004,3 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
-
-
-
-
-
-
-             /* Feedback Section Styles */
-        .feedback-section {
-            background: rgba(231, 76, 60, 0.05);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #e74c3c;
-        }
-        .feedback-section h3 {
-            color: #e74c3c;
-            margin-bottom: 15px;
-        }
-        .feedback-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .feedback-textarea {
-            resize: vertical;
-            min-height: 80px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 14px;
-        }
-        .feedback-submit {
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        .feedback-submit:hover {
-            background-color: #c0392b;
-        }
-        @media (max-width: 768px) {
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-    .social-links {
-    display: flex;
-    gap: 12px;
-    }
-    .social-icon {
-    text-decoration: none;
-    font-size: 20px;
-    }
-
-    .magic {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: black;
-    color: white;
-    transition: all 0.3s ease;
-    }
-    .magic:hover {
-    background: linear-gradient(45deg,#e74c3c);
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-
-
-    </style>
-
-
-</head>
-<body>
-
-    <!-- Navigation Component -->
-    <nav class="header-navigation" id="primaryNavigation">
-        <div class="navigation-wrapper">
-            <div class="menu-toggle-icon" id="burgerIcon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
-            <a href="#" class="brand-logo">
-                <img src="https://via.placeholder.com/40x40/dc2626/ffffff?text=L" alt="Logo">
-                <span class="brand-title">YourLogo</span>
-            </a>
-            
-            <ul class="menu-list" id="navigationMenu">
-                <li class="menu-option"><a href="#" class="menu-anchor">Home</a></li>
-                <li class="menu-option"><a href="#" class="menu-anchor">About</a></li>
-                <li class="menu-option"><a href="#" class="menu-anchor">Services</a></li>
-                <li class="menu-option"><a href="#" class="menu-anchor">Gallery</a></li>
-                <li class="menu-option"><a href="#" class="menu-anchor">Menu</a></li>
-            </ul>
-
-            <!-- Action buttons container -->
-            <div class="nav-actions">
-                <!-- Desktop Search Bar -->
-                <div class="lookup-wrapper">
-                    <form class="lookup-element" id="desktopLookupForm">
-                        <input type="text" class="lookup-field" placeholder="Search..." id="desktopLookupField">
-                        <button type="submit" class="lookup-submit">🔍</button>
-                    </form>
-                </div>
-
-                <!-- Mobile Search Toggle Button -->
-                <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
-
-                <!-- Order Button -->
-                <a href="#" class="order-button">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Order Now</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Search Panel -->
-    <div class="mobile-lookup-panel" id="mobileLookupPanel">
-        <form class="lookup-element" id="mobileLookupForm">
-            <input type="text" class="lookup-field" placeholder="Search..." id="mobileLookupField">
-            <button type="submit" class="lookup-submit">🔍</button>
-        </form>
-    </div>
-
-    <!-- Main content placeholder -->
-    <div class="main-content">
-        <h1 style="color: #dc2626; text-align: center;">Welcome to Our Website</h1>
-    </div>
-    
-    
-    
-    <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <!-- Navigation Links Section -->
-                <div class="footer-section">
-                    <h3>Navigation</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Gallery</a></li>
-                        <li><a href="#">Menu</a></li>
-                    </ul>
-                </div>
-
-                <!-- Feedback Section (No Links, Just Form) -->
-                <div class="footer-section feedback-section">
-                    <h3>Feedback</h3>
-                    <form class="feedback-form" id="feedbackForm">
-                        <textarea class="feedback-textarea" placeholder="Share your feedback..." required></textarea>
-                        <button type="submit" class="feedback-submit">Submit Feedback</button>
-                    </form>
-                </div>
-
-                
-                <!-- Add-ons Section -->
-            
-            <div class="footer-bottom">
-                <div class="logo-section">
-                    <div class="logo">
-                            VADI<span class="red-o">W</span><span class="red-o">A</span>LA
-                    </div>
-                </div>
-        <div class="social-links">
-            <a href="#" class="social-icon magic"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon magic"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon magic"><i class="fa-brands fa-x-twitter"></i></a>
-        </div>
-                
-        <div class="contact-info">
-            <div class="contact-item">
-                <span>📞</span>
-                <span>+919104369797</span>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </footer>
-
-    <script>
-        // Mobile menu toggle
-        const burgerIcon = document.getElementById('burgerIcon');
-        const navigationMenu = document.getElementById('navigationMenu');
-        const mobileLookupToggle = document.getElementById('mobileLookupToggle');
-        const mobileLookupPanel = document.getElementById('mobileLookupPanel');
-
-        burgerIcon.addEventListener('click', function() {
-            burgerIcon.classList.toggle('active');
-            navigationMenu.classList.toggle('active');
-        });
-
-        // Mobile search toggle
-        mobileLookupToggle.addEventListener('click', function() {
-            mobileLookupPanel.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.header-navigation')) {
-                burgerIcon.classList.remove('active');
-                navigationMenu.classList.remove('active');
-                mobileLookupPanel.classList.remove('active');
-            }
-        });
-
-        // Search form handling (placeholder functionality)
-        document.getElementById('desktopLookupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const query = document.getElementById('desktopLookupField').value;
-            if (query.trim()) {
-                alert('Searching for: ' + query);
-            }
-        });
-
-        document.getElementById('mobileLookupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const query = document.getElementById('mobileLookupField').value;
-            if (query.trim()) {
-                alert('Searching for: ' + query);
-            }
-        });
-    </script>
-
-</body>
-</html>
