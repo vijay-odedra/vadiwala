@@ -179,22 +179,22 @@
                 
                 <div class="form-group">
                     <label for="customerName">Your Name</label>
-                    <input type="text" id="customerName" required>
+                    <input type="text" id="customerName" name="customerName" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="customerEmail">Email</label>
-                    <input type="email" id="customerEmail" required>
+                    <input type="email" id="customerEmail" name="customerEmail"   required>
                 </div>
                 
                 <div class="form-group">
                     <label for="customerPhone">Phone Number</label>
-                    <input type="tel" id="customerPhone" required>
+                    <input type="tel" id="customerPhone" name="customerPhone" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="specialInstructions">Special Instructions</label>
-                    <textarea id="specialInstructions" rows="3"></textarea>
+                    <textarea id="specialInstructions" rows="3" name="specialInstructions"></textarea>
                 </div>
                 
                 <div class="form-group">
@@ -205,7 +205,7 @@
                         <div class="payment-method" data-method="upi"><i class="fas fa-mobile-alt"></i> UPI</div>
                         <div class="payment-method" data-method="cash"><i class="fas fa-money-bill-wave"></i> Cash</div>
                     </div>
-                    <input type="hidden" id="paymentMethod" required>
+                    <input type="hidden" id="paymentMethod" name="paymentMethod" required>
                 </div>
                 
                 <button type="submit"><i class="fas fa-paper-plane"></i> Place Order</button>
@@ -230,7 +230,30 @@
     </div>
     
     <!-- Cancel Order Modal -->
-    <div class="modal" id="orderModal"> <div class="modal-content"> <button class="close-btn" id="closeOrderModal">&times;</button> <h2><i class="fas fa-shopping-cart"></i> Place Your Order</h2> <form id="orderForm" action="https://api.web3forms.com/submit"> <div id="orderItemDetails"> <!-- Order item details will be populated here --> </div> <div class="sub-items" id="orderSubItems"> <!-- Sub-items will be populated here --> </div> <div class="form-group"> <label for="customerName">Your Name</label> <input type="text" id="customerName" required> </div> <div class="form-group"> <label for="customerEmail">Email</label> <input type="email" id="customerEmail" required> </div> <div class="form-group"> <label for="customerPhone">Phone Number</label> <input type="tel" id="customerPhone" required> </div> <div class="form-group"> <label for="specialInstructions">Special Instructions</label> <textarea id="specialInstructions" rows="3"></textarea> </div> <div class="form-group"> <label>Payment Method</label> <div class="payment-methods"> <div class="payment-method" data-method="credit"><i class="fas fa-credit-card"></i> Credit Card</div> <div class="payment-method" data-method="debit"><i class="fas fa-credit-card"></i> Debit Card</div> <div class="payment-method" data-method="upi"><i class="fas fa-mobile-alt"></i> UPI</div> <div class="payment-method" data-method="cash"><i class="fas fa-money-bill-wave"></i> Cash</div> </div> <input type="hidden" id="paymentMethod" required> </div> <button type="submit"><i class="fas fa-paper-plane"></i> Place Order</button> </form> </div> </div>
+    <div class="modal" id="cancelOrderModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeCancelModal">&times;</button>
+            <h2><i class="fas fa-times-circle"></i> Cancel Order</h2>
+            <form id="cancelOrderForm">
+                <div class="form-group">
+                    <label for="cancelToken">Token Number</label>
+                    <input type="number" id="cancelToken" min="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cancelEmail">Email Address</label>
+                    <input type="email" id="cancelEmail" required>
+                </div>
+                
+                <div class="cancellation-reason">
+                    <label for="cancelReason">Reason for Cancellation (Optional)</label>
+                    <textarea id="cancelReason" placeholder="Please let us know why you're cancelling..."></textarea>
+                </div>
+                
+                <button type="submit"><i class="fas fa-times"></i> Cancel Order</button>
+            </form>
+        </div>
+    </div>
     
     <!-- Cancellation Confirmation Modal -->
     <div class="modal" id="cancellationConfirmationModal">
