@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-        
+    
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("7vNZqQwPJ5RJ0O_vK"); // Replace with your EmailJS Public Key
+  })();
+</script>
 </head>
 <body>
 
@@ -168,7 +174,7 @@
         <div class="modal-content">
             <button class="close-btn" id="closeOrderModal">&times;</button>
             <h2><i class="fas fa-shopping-cart"></i> Place Your Order</h2>
-            <form id="orderForm" action="https://api.web3forms.com/submit">
+            <form id="orderForm">
                 <div id="orderItemDetails">
                     <!-- Order item details will be populated here -->
                 </div>
@@ -230,7 +236,30 @@
     </div>
     
     <!-- Cancel Order Modal -->
-    <div class="modal" id="orderModal"> <div class="modal-content"> <button class="close-btn" id="closeOrderModal">&times;</button> <h2><i class="fas fa-shopping-cart"></i> Place Your Order</h2> <form id="orderForm" action="https://api.web3forms.com/submit"> <div id="orderItemDetails"> <!-- Order item details will be populated here --> </div> <div class="sub-items" id="orderSubItems"> <!-- Sub-items will be populated here --> </div> <div class="form-group"> <label for="customerName">Your Name</label> <input type="text" id="customerName" required> </div> <div class="form-group"> <label for="customerEmail">Email</label> <input type="email" id="customerEmail" required> </div> <div class="form-group"> <label for="customerPhone">Phone Number</label> <input type="tel" id="customerPhone" required> </div> <div class="form-group"> <label for="specialInstructions">Special Instructions</label> <textarea id="specialInstructions" rows="3"></textarea> </div> <div class="form-group"> <label>Payment Method</label> <div class="payment-methods"> <div class="payment-method" data-method="credit"><i class="fas fa-credit-card"></i> Credit Card</div> <div class="payment-method" data-method="debit"><i class="fas fa-credit-card"></i> Debit Card</div> <div class="payment-method" data-method="upi"><i class="fas fa-mobile-alt"></i> UPI</div> <div class="payment-method" data-method="cash"><i class="fas fa-money-bill-wave"></i> Cash</div> </div> <input type="hidden" id="paymentMethod" required> </div> <button type="submit"><i class="fas fa-paper-plane"></i> Place Order</button> </form> </div> </div>
+    <div class="modal" id="cancelOrderModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeCancelModal">&times;</button>
+            <h2><i class="fas fa-times-circle"></i> Cancel Order</h2>
+            <form id="cancelOrderForm">
+                <div class="form-group">
+                    <label for="cancelToken">Token Number</label>
+                    <input type="number" id="cancelToken" min="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cancelEmail">Email Address</label>
+                    <input type="email" name="customerEmail"  id="cancelEmail" required>
+                </div>
+                
+                <div class="cancellation-reason">
+                    <label for="cancelReason">Reason for Cancellation (Optional)</label>
+                    <textarea id="cancelReason" placeholder="Please let us know why you're cancelling..."></textarea>
+                </div>
+                
+                <button type="submit"><i class="fas fa-times"></i> Cancel Order</button>
+            </form>
+        </div>
+    </div>
     
     <!-- Cancellation Confirmation Modal -->
     <div class="modal" id="cancellationConfirmationModal">
@@ -296,7 +325,11 @@
     </footer>
 
 
+
     <script>
+
+    let currentOrderItems = []; // initialize empty array
+
         // Sample menu data with expiry timestamps
         let menuItems = [
             {
@@ -332,6 +365,9 @@
             }
         ];
         
+
+ 
+
         // Orders data
         let orders = [];
         
@@ -339,6 +375,7 @@
         let tokenCounter = 1;
         
         // DOM Elements
+        const customerEmail = document.getElementById('customerEmail').value;
         const adminPanel = document.getElementById('adminPanel');
         const adminToggle = document.getElementById('adminToggle');
         const menuGrid = document.getElementById('menuGrid');
@@ -532,6 +569,47 @@
             adminPanel.style.display = adminPanel.style.display === 'none' ? 'block' : 'none';
             orderHistory.style.display = 'none';
         }
+
+
+
+        function sendOrderEmails(order) {
+    // Email to Customer
+    emailjs.send("vadiwala", "template_customer", {
+        token: order.token,
+        customer_name: order.customerName,
+        customer_email: order.customerEmail,
+        item: order.item.name,
+        total: order.item.price + (order.selectedSubItems || []).reduce((s,i)=>s+i.price,0),
+        estimated_time: order.estimatedReadyTime,
+        site_link: "https://yourshop.com",
+        shop_phone: "+91-9876543210"
+    }).then(res => {
+        console.log("Customer email sent!", res);
+    }).catch(err => console.error("Customer email error:", err));
+
+    // Email to Owner
+    emailjs.send("vadiwala", "template_owner", {
+        token: order.token,
+        customer_name: order.customerName,
+        customer_email: order.customerEmail,
+        item: order.item.name,
+        total: order.item.price + (order.selectedSubItems || []).reduce((s,i)=>s+i.price,0),
+        payment: order.paymentMethod,
+        estimated_time: order.estimatedReadyTime,
+        site_link: "https://yourshop.com"
+    }).then(res => {
+        console.log("Owner email sent!", res);
+    }).catch(err => console.error("Owner email error:", err));
+}
+
+
+
+
+
+
+
+
+
         
         // Show order history
         function showOrderHistory() {
@@ -713,7 +791,7 @@
                 token: token,
                 item: currentOrderItem,
                 customerName: document.getElementById('customerName').value,
-                customerEmail: document.getElementById('customerEmail').value,
+                customerEmail: document.getElementById('customerEmail').value,  
                 customerPhone: document.getElementById('customerPhone').value,
                 specialInstructions: document.getElementById('specialInstructions').value,
                 paymentMethod: document.getElementById('paymentMethod').value,
@@ -736,7 +814,13 @@
             estimatedReadyTime.textContent = readyTime;
             
             // Send email notifications (simulated)
-            sendEmailNotifications(order, 'confirmation');
+            // sendEmailNotifications(order, 'confirmation');
+
+            // Send real emails with EmailJS
+            sendOrderEmails(order);
+
+
+
             
             // Show confirmation modal
             orderModal.style.display = 'none';
@@ -1004,9 +1088,37 @@
             
             subItemsContainer.appendChild(newInput);
         }
+
+        // Handle order submission
+document.getElementById("orderForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const order = {
+        customerName: document.getElementById("customerName").value,
+        email: document.getElementById("customerEmail").value,
+        phone: document.getElementById("customerPhone").value,
+        instructions: document.getElementById("specialInstructions").value,
+        payment: document.getElementById("paymentMethod").value,
+        token: Math.floor(Math.random() * 9000) + 1000, // random 4-digit token
+        items: currentOrderItems || [] // collect selected items
+    };
+
+    // Show confirmation modal
+    document.getElementById("confirmedToken").innerText = order.token;
+    document.getElementById("confirmationModal").style.display = "block";
+
+    // ✅ Send emails to customer & shop owner
+    sendOrderEmails(order);
+
+    // Clear form
+    document.getElementById("orderForm").reset();
+});
+
         
         // Initialize the application
         init();
+
+     
     </script>
 </body>
 </html>
