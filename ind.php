@@ -41,6 +41,7 @@ $adminEmail = "admin@gmail.com";
                         <li><a href="../vadiwala/VANSH/about_us.html">About</a></li>
                         <li><a href="../vadiwala/CHIRAG/services.html">Services</a></li>
                         <li><a href="../vadiwala/VIJAY/gallery.html">Gallery</a></li>
+                        <li><a href="../vadiwala/logout.php">Logout</a></li>
                     </ul>
                 </nav>
             </div>
