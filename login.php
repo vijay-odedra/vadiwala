@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         if (password_verify($password, $row['password'])) {
             $_SESSION['email'] = $row['email'];
             $_SESSION['role'] = "user";
-            header("Location: order.php");
+            header("Location: ind.php");
             exit();
         } else {
             echo "<script>alert('❌ Incorrect password!');</script>";

@@ -1051,7 +1051,7 @@ $adminEmail = "admin@gmail.com";
             </a>
             
             <ul class="menu-list" id="navigationMenu">
-                <li class="menu-option"><a href="../VIJAY/home1.html" class="menu-anchor">Home</a></li>
+                <li class="menu-option"><a href="../ind.php" class="menu-anchor">Home</a></li>
                 <li class="menu-option"><a href="../VANSH/about_us.html" class="menu-anchor">About</a></li>
                 <li class="menu-option"><a href="../CHIRAG/services.html" class="menu-anchor">Services</a></li>
                 <li class="menu-option"><a href="../VIJAY/gallery.html" class="menu-anchor">Gallery</a></li>
