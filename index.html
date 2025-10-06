@@ -5,32 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vadiwala | Where Time Stands Still</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" >
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 </head>
 <body>
     <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">
-                    <img src="../vadiwala/DIVYRAJ/food.png" alt="Vadiwala Logo" class="logo-image">
-                    <!-- <i class="fas fa-door-open logo-icon"></i> -->
-                    VadiWala
+    <!-- Header -->
+    <header>
+    
+    <!-- Navigation Component -->
+    <nav class="header-navigation" id="primaryNavigation">
+        <div class="navigation-wrapper">
+            <div class="menu-toggle-icon" id="burgerIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <a href="#" class="brand-logo">
+                <img src="../vadiwala/DIVYRAJ/food.png" alt="Logo">
+                <span class="brand-title">VadiWala</span>
+            </a>
+            
+            <ul class="menu-list" id="navigationMenu">
+                <li class="menu-option"><a href="../vadiwala/index.html" class="menu-anchor">Home</a></li>
+                <li class="menu-option"><a href="../vadiwala/VANSH/about_us.html" class="menu-anchor">About</a></li>
+                <li class="menu-option"><a href="../vadiwala/CHIRAG/services.html" class="menu-anchor">Services</a></li>
+                <li class="menu-option"><a href="../vadiwala/VIJAY/gallery.html" class="menu-anchor">Gallery</a></li>
+            </ul>
+
+            <!-- Action buttons container -->
+            <div class="nav-actions">
+                <!-- Mobile Search Toggle Button -->
+                <button class="mobile-lookup-trigger" id="mobileLookupToggle">🔍</button>
+
+                <!-- Order Button -->
+                <a href="../vadiwala/VIJAY/menu4.html" class="order-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Order Now</span>
                 </a>
-                <nav>
-                    <ul>
-                        <li><a href="../vadiwala/index.html">Home</a></li>
-                        <li><a href="../vadiwala/VANSH/about_us.html">About</a></li>
-                        <li><a href="../vadiwala/CHIRAG/services.html">Services</a></li>
-                        <li><a href="../vadiwala/VIJAY/gallery.html">Gallery</a></li>
-                    </ul>
-                </nav>
             </div>
         </div>
-    </header>
+    </nav>
 
+    </header>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg"></div>
@@ -152,11 +172,15 @@
             <a href="#" class="social-icon magic"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
                 
-        <div class="contact-info">
-            <div class="contact-item">
+        <div class="contact-item">
                 <span>📞</span>
-                <span>+919104369797</span>
+                <span>+91 76006 46404</span>
+            </div>
+        <div class="contact-item">
+            <span><i class="fas fa-map-marker-alt"></i></span>
+            <span>Beside Sayaji hotel Vrundavan Society Main Road, Kalavad Rd, Nana Mava, Rajkot, Gujarat 360005</span>
         </div>
+
         </div>
         </div>
         </div>
