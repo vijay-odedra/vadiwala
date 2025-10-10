@@ -14,8 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
     $confirm_password = mysqli_real_escape_string($con, $_POST['confirm_password']);
 
     if ($password === $confirm_password) {
+        // Hash the password
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
+        // Check if email already exists
         $check = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
         if (mysqli_num_rows($check) > 0) {
             echo "<script>alert('⚠️ Email already registered!');</script>";
@@ -37,23 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     $email = trim(mysqli_real_escape_string($con, $_POST['login_email']));
     $password = mysqli_real_escape_string($con, $_POST['login_password']);
 
-    // Admin login check
-    if ($email === "admin" && $password === "admin") {
-        $_SESSION['email'] = $email;
-        $_SESSION['role'] = "admin";
-        header("Location: order.php");
-        exit();
-    }
-
-    // User login check
     $sql = "SELECT * FROM users WHERE email='$email' LIMIT 1";
     $result = mysqli_query($con, $sql);
 
     if ($row = mysqli_fetch_assoc($result)) {
         if (password_verify($password, $row['password'])) {
+            // Set session
+            $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['email'] = $row['email'];
-            $_SESSION['role'] = "user";
-            header("Location: ind.php");
+
+            // Redirect to nav.php after login
+            header("Location: nav.php");
             exit();
         } else {
             echo "<script>alert('❌ Incorrect password!');</script>";
@@ -63,6 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
